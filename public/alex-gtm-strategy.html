@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALEX Go-to-Market Strategy | Free-First PLG Model</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #fafafa;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #000;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #222;
+      margin: 35px 0 15px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #0066cc;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: #333;
+      margin: 25px 0 12px 0;
+    }
+    p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    ul, ol {
+      margin: 12px 0 12px 25px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .highlight {
+      background: #f0f7ff;
+      border-left: 4px solid #0066cc;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .warning {
+      background: #fff8e6;
+      border-left: 4px solid #ff9800;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .tier-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .tier-name {
+      font-weight: 700;
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .tier-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .tier-features {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    .cta-box h3 {
+      color: white;
+      margin-top: 0;
+    }
+    .cta-box p {
+      margin-bottom: 0;
+    }
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      color: #888;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    strong {
+      font-weight: 600;
+    }
+    .ready-badge {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ALEX Go-to-Market Strategy</h1>
+  <div class="subtitle">Free-First Product-Led Growth with Enterprise Expansion</div>
+
+  <div class="highlight">
+    <strong>Executive Summary:</strong> Launch ALEX as a completely free, locally-run personal agent with optional low-cost convenience services ($5/month). Enterprise monetization through organizational governance and control. HP and OEM partners as distribution channels rather than primary revenue source.
+  </div>
+
+  <h2>The Strategic Dilemma</h2>
+  <p><strong>Challenge:</strong> Open-source alternatives are emerging rapidly in the AI agent space. While ALEX has the best overall platform, the enterprise route takes 6-12 months to generate meaningful revenue, potentially missing the critical window to establish market leadership.</p>
+  
+  <p><strong>Decision Point:</strong> Prioritize speed of adoption through free consumer distribution while preserving enterprise monetization pathways.</p>
+
+  <h2>Recommended Strategy: Free-First PLG Model</h2>
+
+  <h3>Core Philosophy</h3>
+  <div class="highlight">
+    <strong>Free when users provide resources. Paid for convenience and managed services.</strong>
+  </div>
+  <p>Users can run ALEX indefinitely without paying by providing their own API keys and local models. ALEX monetizes hosted services that incur recurring costs or remove technical friction.</p>
+
+  <h2>Product Tier Structure</h2>
+
+  <div class="tier-card">
+    <div class="tier-name">ALEX Free</div>
+    <div class="tier-price">$0</div>
+    <div class="tier-features">
+      <ul>
+        <li>Full local agent with complete functionality</li>
+        <li>Bring-your-own API keys (OpenAI, Anthropic, etc.)</li>
+        <li>Local model support (Ollama, LM Studio, etc.)</li>
+        <li>Skills, automations, and memory system</li>
+        <li>Integrations with personal accounts</li>
+        <li>Limited hosted web search (e.g., 10-20 searches/month)</li>
+        <li>Local-network browser access</li>
+        <li>Community support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">ALEX Plus</div>
+    <div class="tier-price">$5-10/month</div>
+    <div class="tier-features">
+      <ul>
+        <li><strong>Managed secure tunnel:</strong> Remote access from any device via browser</li>
+        <li><strong>Enhanced hosted search:</strong> 100-500 searches/month with citations</li>
+        <li><strong>Priority cloud connectors:</strong> Faster, more reliable integrations</li>
+        <li><strong>Encrypted settings sync:</strong> Cross-device configuration backup</li>
+        <li><strong>Managed backups:</strong> Secure recovery for agent state and workflows</li>
+        <li><strong>Priority support:</strong> Faster response times</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">ALEX Business</div>
+    <div class="tier-price">$15-30/user/month</div>
+    <div class="tier-features">
+      <ul>
+        <li>Shared skills and workflows across teams</li>
+        <li>Organizational knowledge base</li>
+        <li>Managed team integrations</li>
+        <li>Admin dashboard and user management</li>
+        <li>Usage analytics and reporting</li>
+        <li>Collaborative workspace features</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">ALEX Enterprise</div>
+    <div class="tier-price">Custom pricing</div>
+    <div class="tier-features">
+      <ul>
+        <li>SSO/SAML and identity federation</li>
+        <li>Centralized policy enforcement</li>
+        <li>Audit trails and compliance reporting</li>
+        <li>Fleet management and deployment</li>
+        <li>Data residency and air-gapped options</li>
+        <li>Priority support and SLA</li>
+        <li>Custom security configurations</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">ALEX OEM</div>
+    <div class="tier-price">Revenue share / licensing</div>
+    <div class="tier-features">
+      <ul>
+        <li>Device provisioning and customization</li>
+        <li>Pre-installed on hardware</li>
+        <li>White-label or co-branding options</li>
+        <li>Hardware-specific integrations</li>
+        <li>Distribution rights</li>
+        <li>HP partnership model example</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Why This Model Works</h2>
+
+  <h3>1. Maximum Adoption Velocity</h3>
+  <ul>
+    <li>No friction for initial download and use</li>
+    <li>Builds trust through transparency (local-first, BYOK)</li>
+    <li>Technical prosumers and power users adopt quickly</li>
+    <li>Creates ecosystem of skills, integrations, and workflows</li>
+    <li>Organic growth through word-of-mouth and GitHub community</li>
+  </ul>
+
+  <h3>2. Natural Enterprise Expansion</h3>
+  <p>Employees bring ALEX into organizations organically. When collaboration needs arise, Business and Enterprise tiers provide the necessary governance and control. This creates <strong>bottom-up enterprise adoption</strong> rather than top-down procurement.</p>
+
+  <h3>3. Sustainable Unit Economics</h3>
+  <p>Free users pay for themselves through zero infrastructure cost (local models, BYOK). Plus tier covers hosted search and tunnel costs while generating margin. Enterprise provides high-margin revenue with predictable economics.</p>
+
+  <h3>4. Defensible Moat</h3>
+  <ul>
+    <li><strong>Ecosystem lock-in:</strong> Skills, workflows, and memory become harder to replace</li>
+    <li><strong>Enterprise controls:</strong> SSO, audit, policy enforcement are difficult to replicate</li>
+    <li><strong>OEM relationships:</strong> Pre-installed distribution creates barriers to entry</li>
+    <li><strong>Brand trust:</strong> Local-first, privacy-focused positioning differentiates from competitors</li>
+  </ul>
+
+  <h2>Key Monetization Principles</h2>
+
+  <div class="highlight">
+    <strong>Charge for services that have recurring costs or remove technical complexity. Do not charge for access to the core agent.</strong>
+  </div>
+
+  <h3>Good candidates for paid services:</h3>
+  <ul>
+    <li>Hosted web search (API costs)</li>
+    <li>Secure remote tunnel (bandwidth, certificate management)</li>
+    <li>Managed cloud connectors (reliability, uptime)</li>
+    <li>Encrypted sync and backup (storage costs)</li>
+    <li>Organizational governance (admin overhead)</li>
+  </ul>
+
+  <h3>Never charge for:</h3>
+  <ul>
+    <li>Core agent functionality</li>
+    <li>Local model execution</li>
+    <li>Skills and automation creation</li>
+    <li>Personal integrations</li>
+    <li>Memory and context management</li>
+  </ul>
+
+  <h2>Risks and Mitigations</h2>
+
+  <div class="warning">
+    <strong>Risk 1: Free adoption without monetization</strong><br>
+    <strong>Mitigation:</strong> Define conversion metrics before launch. Track Plus activation rate, hosted-search consumption, and tunnel usage. Ensure free tier creates natural pathways to paid (e.g., users hitting search limits).
+  </div>
+
+  <div class="warning">
+    <strong>Risk 2: Enterprise perception as "consumer product"</strong><br>
+    <strong>Mitigation:</strong> Position ALEX as professional personal agent with enterprise control plane. Maintain separate enterprise documentation, security whitepapers, and compliance certifications.
+  </div>
+
+  <div class="warning">
+    <strong>Risk 3: Open-source competitors copying the model</strong><br>
+    <strong>Mitigation:</strong> Keep core orchestration and enterprise features proprietary initially. Open-source SDKs and interfaces to build ecosystem without surrendering differentiation.
+  </div>
+
+  <div class="warning">
+    <strong>Risk 4: Tunnel security vulnerabilities</strong><br>
+    <strong>Mitigation:</strong> Implement strong authentication, device authorization, short-lived sessions, rate limiting, and audit logging. Treat tunnel as critical security infrastructure.
+  </div>
+
+  <div class="warning">
+    <strong>Risk 5: HP partnership devaluation</strong><br>
+    <strong>Mitigation:</strong> Offer HP differentiated value through device integration, provisioning, co-branding, and distribution rights. Review HP agreement before public launch.
+  </div>
+
+  <h2>Success Metrics (First 90 Days)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Target</th>
+        <th>Why It Matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Active users (7-day retention)</td>
+        <td>1,000+</td>
+        <td>Validates product-market fit</td>
+      </tr>
+      <tr>
+        <td>Plus conversion rate</td>
+        <td>3-5%</td>
+        <td>Tests willingness to pay for convenience</td>
+      </tr>
+      <tr>
+        <td>Tunnel activation rate</td>
+        <td>20% of Plus users</td>
+        <td>Validates remote access value prop</td>
+      </tr>
+      <tr>
+        <td>Hosted search per active user</td>
+        <td>15-25 searches/month</td>
+        <td>Ensures pricing covers costs</td>
+      </tr>
+      <tr>
+        <td>Organizations with 3+ users</td>
+        <td>10+</td>
+        <td>Signals enterprise expansion potential</td>
+      </tr>
+      <tr>
+        <td>GitHub stars / community growth</td>
+        <td>500+</td>
+        <td>Builds ecosystem and credibility</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Launch Sequence <span class="ready-badge">Ready to Launch</span></h2>
+
+  <ol>
+    <li><strong>Day 1 (Immediate):</strong> Public launch of ALEX Free + ALEX Plus with hosted search and tunnel already built</li>
+    <li><strong>Week 1:</strong> Launch to technical prosumers via GitHub, AI communities, and personal networks</li>
+    <li><strong>Week 2-3:</strong> Measure adoption, monitor Plus conversion, collect early feedback</li>
+    <li><strong>Week 4-6:</strong> Refine pricing based on usage patterns, fix critical issues, optimize onboarding</li>
+    <li><strong>Week 7-8:</strong> Broad public launch with press outreach (Hacker News, Product Hunt, AI newsletters)</li>
+    <li><strong>Week 9-12:</strong> Begin enterprise outreach with early adopter case studies and testimonials</li>
+    <li><strong>Week 13:</strong> Reassess HP partnership with market validation and user traction</li>
+    <li><strong>Month 4-6:</strong> Launch ALEX Business tier for teams showing organic collaboration needs</li>
+  </ol>
+
+  <div class="cta-box">
+    <h3>Immediate Next Steps</h3>
+    <p>1. <strong>Launch today:</strong> Deploy ALEX Free + Plus with hosted search and tunnel<br>
+       2. Set up analytics and conversion tracking (Plus activation, search usage, tunnel adoption)<br>
+       3. Prepare launch materials (GitHub README, landing page, documentation)<br>
+       4. Review HP agreement for public launch compatibility<br>
+       5. Identify 10-20 beta users from existing network for initial feedback<br>
+       6. Monitor infrastructure costs and adjust hosted-search allowances as needed</p>
+  </div>
+
+  <div class="footer">
+    <p>Updated: July 23, 2026 | ALEX Strategy Document | Product Ready for Launch</p>
+  </div>
+</body>
+</html>
