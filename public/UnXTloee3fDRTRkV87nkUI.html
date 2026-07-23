@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALEX Strategic Roadmap — July 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #1a1a2e;
+    --text-secondary: #6b7280;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --warn: #d97706;
+    --warn-light: #fffbeb;
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+    --success: #059669;
+    --success-light: #ecfdf5;
+    --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  /* ── Cover ── */
+  .cover {
+    text-align: center;
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .cover img {
+    height: 52px;
+    margin-bottom: 36px;
+  }
+  .cover h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+  .cover .meta {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+  .cover .meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cover .badge {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    background: var(--danger-light);
+    color: var(--danger);
+  }
+
+  /* ── Sections ── */
+  section {
+    margin-bottom: 44px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 24px 0 10px;
+    color: var(--text);
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin: 20px 0 8px;
+  }
+
+  p { margin-bottom: 12px; color: var(--text); }
+
+  /* ── Callout ── */
+  .callout {
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .callout.info  { background: var(--accent-light); border-left: 4px solid var(--accent); }
+  .callout.warn  { background: var(--warn-light);  border-left: 4px solid var(--warn); }
+  .callout.danger{ background: var(--danger-light);border-left: 4px solid var(--danger); }
+  .callout.success{ background: var(--success-light);border-left: 4px solid var(--success); }
+  .callout strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead th {
+    background: #f8fafc;
+    text-align: left;
+    padding: 11px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+
+  /* ── Lists ── */
+  ul, ol { margin: 10px 0 16px 20px; }
+  li { margin-bottom: 6px; }
+
+  /* ── Phase / Timeline ── */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 18px 0;
+  }
+  .phase-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    background: var(--surface);
+  }
+  .phase-card h4 {
+    margin: 0 0 6px;
+    font-size: 13px;
+  }
+  .phase-card .when {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .phase-card ul { margin: 0 0 0 16px; font-size: 13px; }
+  .phase-card li { margin-bottom: 3px; }
+
+  /* ── KPI row ── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .kpi {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+  }
+  .kpi .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .kpi .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-top: 4px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; max-width: 100%; padding: 40px 48px; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ═══════════ COVER ═══════════ -->
+<div class="cover">
+  <img src="https://echo.win/logo.png" alt="echowin logo" onerror="this.style.display='none'">
+  <h1>ALEX Strategic Roadmap</h1>
+  <p class="subtitle">From desktop agent to governed platform for disconnected and regulated environments</p>
+  <div class="meta">
+    <span>&#128197; July 2026</span>
+    <span>&#128274; Confidential — echowin Executive Team</span>
+    <span>v1.0</span>
+  </div>
+  <div class="badge">Internal Strategy</div>
+</div>
+
+<!-- ═══════════ 1. EXECUTIVE SUMMARY ═══════════ -->
+<section>
+  <h2>1. Executive Summary</h2>
+
+  <p>AI is commoditizing software. Code, features, and model access are becoming table stakes. Defensibility is shifting to <strong>trust, compliance, accreditation, procurement access, distribution, accumulated context, and governance</strong> — areas where echowin's local-first architecture gives it a structural advantage that cloud-dependent competitors cannot easily replicate.</p>
+
+  <div class="callout info">
+    <strong>Core Thesis</strong>
+    ALEX should pivot from a "desktop AI agent" to a <strong>governed agent platform for disconnected and regulated environments</strong>. The product is not the agent — it is the trust, control, and auditability that enterprises and governments require before they will deploy AI at all.
+  </div>
+
+  <h3>Highest-Probability Sequence</h3>
+  <ol>
+    <li><strong>Turn HP interest into two measurable pilots immediately</strong> — 20 internal users for validation, then 2,000 salespeople for field deployment.</li>
+    <li><strong>Sell productized enterprise deployments now</strong> — defense, government, healthcare, and other regulated sectors that need air-gapped AI.</li>
+    <li><strong>Build governance, audit, and offline fleet management as the commercial moat.</strong></li>
+    <li><strong>Release the SDK and extension surface first, not the entire core.</strong></li>
+    <li><strong>Open the runtime only after the paid boundary and HP arrangement are clear.</strong></li>
+    <li><strong>Develop personalized local adapters behind the scenes</strong>, starting with on-device and customer-controlled training.</li>
+    <li><strong>Use HP as the first OEM proof point, then remain nonexclusive and hardware agnostic.</strong></li>
+  </ol>
+</section>
+
+<!-- ═══════════ 2. PRODUCT IDENTITY ═══════════ -->
+<section>
+  <h2>2. Product Identity</h2>
+
+  <p>ALEX operates across three distinct product identities, sharing a common platform:</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Identity</th><th>Description</th><th>Target Customer</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Governed Local Agent</strong></td>
+        <td>AI agent that operates entirely on-device with administrative policy controls, tamper-evident audit trails, and no internet requirement</td>
+        <td>Defense, government, healthcare, legal, financial services</td>
+      </tr>
+      <tr>
+        <td><strong>Fleet Management / Control Plane</strong></td>
+        <td>Centralized administration for policy, identity, model distribution, signed updates, and audit across thousands of devices</td>
+        <td>Enterprise IT, OEM partners, managed service providers</td>
+      </tr>
+      <tr>
+        <td><strong>Local AI Platform / Gateway</strong></td>
+        <td>OpenAI-compatible localhost API that lets internal applications, scripts, and tools use ALEX as their model provider</td>
+        <td>Internal development teams, system integrators, ISVs</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Key Capabilities (Current)</h3>
+  <ul>
+    <li>Local-first inference with no cloud dependency</li>
+    <li>Machine operation — file access, command execution, document reading</li>
+    <li>Extensible skills system with bundled scripts and references</li>
+    <li>Long-term memory with automatic extraction and semantic recall</li>
+    <li>Scheduled actions and background command execution</li>
+    <li>MCP (Model Context Protocol) integrations for external services</li>
+    <li>Incognito mode for sensitive work</li>
+    <li>OpenAI-compatible local API gateway (<code>http://127.0.0.1:8082/v1</code>)</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 3. HP PARTNERSHIP ═══════════ -->
+<section>
+  <h2>3. HP Partnership Opportunity</h2>
+
+  <h3>Current State</h3>
+  <ul>
+    <li><strong>Executive sponsor:</strong> VP of Advanced Compute and AI at HP — strong personal relationship, partially funding ALEX R&amp;D through a ~$20,000/month retainer (routed through vendor NPI for procurement convenience).</li>
+    <li><strong>R&amp;D funding:</strong> Retainer for continuous engagement. HP does not own any IP.</li>
+    <li><strong>C-suite reception:</strong> ALEX was presented at an HP C-suite meeting and received positive reception from the CEO and VP of Sales.</li>
+    <li><strong>Internal interest:</strong> VP's team wants to test ALEX internally.</li>
+    <li><strong>Sales deployment interest:</strong> VP of Sales wants to deploy ALEX to salespeople's computers for demonstration purposes.</li>
+    <li><strong>Soft commitments:</strong> 20 direct reports for internal testing and feedback; 2,000 salespeople for subsequent deployment.</li>
+  </ul>
+
+  <div class="callout success">
+    <strong>Strategic Value</strong>
+    This is not a cold OEM pitch. HP is already a funded design partner, an internal customer candidate, and a potential distribution partner. The relationship removes the largest obstacle in any OEM strategy: access.
+  </div>
+
+  <h3>HP's Strategic Direction</h3>
+  <p>HP is emphasizing edge intelligence, local processing, and reduced dependence on cloud infrastructure. It is developing HP IQ as an intelligence layer and Workforce Experience Platform as an IT control plane. This creates alignment — and potential overlap. echowin should position ALEX as the <strong>agent runtime and developer ecosystem</strong> that can operate under HP's fleet-management and security layers, rather than competing with HP's own platform ambitions.</p>
+
+  <h3>Two-Pilot Structure</h3>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <h4>Pilot A: Internal Validation</h4>
+      <div class="when">20 users · 60–90 days</div>
+      <ul>
+        <li>Deploy to VP's direct reports</li>
+        <li>Validate installation, model delivery, performance</li>
+        <li>Test security and administrative controls</li>
+        <li>Measure daily usage and time savings</li>
+        <li>Weekly structured feedback sessions</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Pilot B: Sales Demonstration</h4>
+      <div class="when">2,000 users · After Pilot A success</div>
+      <ul>
+        <li>Polished, constrained demo edition</li>
+        <li>Prepared demo workflows</li>
+        <li>Local operation — no cloud dependencies</li>
+        <li>Resettable demo data</li>
+        <li>Clear privacy and security story for buyers</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pricing Recommendation</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Phase</th><th>Users</th><th>Price</th><th>Structure</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Internal Validation</td>
+        <td>20</td>
+        <td><strong>$0 incremental</strong></td>
+        <td>Included within existing R&amp;D retainer. Formally valued at $15,000–$25,000 on paperwork. Time-limited to 90 days.</td>
+      </tr>
+      <tr>
+        <td>Field Deployment</td>
+        <td>2,000</td>
+        <td><strong>$175,000–$300,000</strong></td>
+        <td>Separate paid agreement. Capacity license (not per-seat). 6-month initial term at $175,000–$250,000 or annual at ~$300,000. Includes deployment, training, support.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Critical Boundary</strong>
+    The 2,000-user deployment must be separately funded by a different HP budget owner (Sales leadership or Workforce Technology). Do not allow the existing retainer to absorb production deployment indefinitely. The primary objective of the 20-user pilot is to create evidence and recruit a second HP budget owner.
+  </div>
+
+  <h3>NPI Arrangement — Key Protections</h3>
+  <ul>
+    <li>echowin retains all ALEX IP; NPI receives no implied ownership or broad license.</li>
+    <li>NPI cannot sell or sublicense ALEX without authorization.</li>
+    <li>HP's rights are limited to the stated R&amp;D and evaluation scope.</li>
+    <li>Production deployment is not included in the current arrangement.</li>
+    <li>echowin can contract directly with HP later; NPI does not receive permanent exclusivity.</li>
+    <li>Feedback does not transfer ownership of general product improvements.</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 4. OEM STRATEGY ═══════════ -->
+<section>
+  <h2>4. OEM Strategy</h2>
+
+  <h3>Positioning</h3>
+  <p>OEM distribution is a <strong>strong secondary channel</strong> for hardware integration and enterprise reach, but it should not be echowin's sole or primary strategy. Apple will compete with its own integrated platform. The opportunity is in secure enterprise and government hardware bundles, OEM co-selling, and certified configurations.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Pursue</th><th>Avoid</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Secure enterprise/government hardware bundles</td>
+        <td>Undifferentiated consumer preload</td>
+      </tr>
+      <tr>
+        <td>OEM co-selling and certified configurations</td>
+        <td>Dependency on a single OEM</td>
+      </tr>
+      <tr>
+        <td>Non-exclusive, multi-OEM relationships</td>
+        <td>Becoming only a white-labeled assistant</td>
+      </tr>
+      <tr>
+        <td>Co-branded or echowin-branded deployments</td>
+        <td>Surrendering the customer relationship to the OEM</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>"ALEX Certified Secure AI Workstation"</h3>
+  <p>A proposed product concept where the OEM provides hardware and ALEX provides the governed agent runtime:</p>
+  <ul>
+    <li>Models, memory, tools, and documents remain local</li>
+    <li>Works without internet</li>
+    <li>Administrators govern tools, directories, models, memory, and networking</li>
+    <li>Consequential actions have tamper-evident audit trails</li>
+    <li>Models, skills, policies, and updates use signed offline bundles</li>
+    <li>Device identity and audit signing can use TPM or another hardware root of trust</li>
+    <li>Internal apps can access ALEX through its local platform/API</li>
+  </ul>
+
+  <h3>Commercial Structure</h3>
+  <ul>
+    <li>Branded or co-branded (not white-label)</li>
+    <li>Non-exclusive terms</li>
+    <li>Site licensing or per-device royalties</li>
+    <li>Support and sustainment contracts</li>
+    <li>echowin retains control of signing keys</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 5. OPEN-SOURCE STRATEGY ═══════════ -->
+<section>
+  <h2>5. Open-Source Strategy</h2>
+
+  <div class="callout warn">
+    <strong>Do not open-source the entire core immediately.</strong>
+    echowin has unusual strategic leverage with HP right now. Publishing everything before understanding what HP, enterprises, and regulated customers value could surrender optionality without creating meaningful community adoption.
+  </div>
+
+  <h3>Staged Approach</h3>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <h4>Stage 1: Public SDK</h4>
+      <div class="when">Months 1–3</div>
+      <ul>
+        <li>Release skills SDK and extension specification</li>
+        <li>Example skills and local API documentation</li>
+        <li>Selected runtime components</li>
+        <li>Test developer interest without giving away product boundary</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Stage 2: Source-Available</h4>
+      <div class="when">Months 4–9</div>
+      <ul>
+        <li>Developer edition — inspect, modify, run locally</li>
+        <li>Reserve commercial redistribution and OEM rights</li>
+        <li>Build community and contribution pipeline</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Stage 3: Open-Core</h4>
+      <div class="when">Months 9–18</div>
+      <ul>
+        <li>Open the runtime under an OSI license</li>
+        <li>Enterprise boundary is implemented and proven</li>
+        <li>HP commercial path is clear</li>
+        <li>Trademark, contribution, and security policies are ready</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Decision Gate</h4>
+      <div class="when">Before Stage 3</div>
+      <ul>
+        <li>Is the paid boundary clear and defensible?</li>
+        <li>Does the community actually want this?</li>
+        <li>Can echowin sustain developer relations?</li>
+        <li>Is the license choice aligned with distribution goals?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Open-Core Boundary</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Open Source</th><th>Commercial</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Local single-user agent runtime</td>
+        <td>Fleet administration and central policy management</td>
+      </tr>
+      <tr>
+        <td>OpenAI-compatible local gateway</td>
+        <td>Enterprise identity and RBAC</td>
+      </tr>
+      <tr>
+        <td>Model-provider abstraction</td>
+        <td>Tamper-evident audit infrastructure</td>
+      </tr>
+      <tr>
+        <td>Skills and tools SDK</td>
+        <td>Signed enterprise distribution and offline update orchestration</td>
+      </tr>
+      <tr>
+        <td>Basic memory interfaces</td>
+        <td>Compliance and accreditation packages</td>
+      </tr>
+      <tr>
+        <td>Local file and application integrations</td>
+        <td>Enterprise connectors and organization-level memory</td>
+      </tr>
+      <tr>
+        <td>Community extension format</td>
+        <td>Certified skills, support, indemnification, SLAs</td>
+      </tr>
+      <tr>
+        <td>Reference CLI/desktop experience</td>
+        <td>OEM certification and deployment tooling</td>
+      </tr>
+      <tr>
+        <td>Hardware benchmarking tools</td>
+        <td>Confidential personalization service</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════ 6. PERSONALIZED MODEL EVOLUTION ═══════════ -->
+<section>
+  <h2>6. Personalized Model Evolution</h2>
+
+  <div class="callout info">
+    <strong>Reframed Promise</strong>
+    "Your ALEX becomes uniquely yours while your private data remains under your control." Do not initially promise that every conversation continuously retrains an independent foundational model. Most user value will come from memory, retrieval, and behavior profiling — not from continuous fine-tuning.
+  </div>
+
+  <h3>Four-Phase Roadmap</h3>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <h4>Phase 1: Evolving Memory &amp; Behavior</h4>
+      <div class="when">Now — Q4 2026</div>
+      <ul>
+        <li>Improve memory quality, retrieval, correction, provenance, and export</li>
+        <li>Let users inspect and delete what ALEX has learned</li>
+        <li>Behavior profiling: communication style, approval preferences, recurring workflows</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Phase 2: Local Adapter Training</h4>
+      <div class="when">Q4 2026 – Q2 2027</div>
+      <ul>
+        <li>Train small personal adapters (LoRA) locally during idle periods</li>
+        <li>Raw conversations never leave the device</li>
+        <li>Explicit opt-in, user-selectable training sources</li>
+        <li>Evaluation before activation, versioning, rollback</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Phase 3: Customer-Controlled Training Appliance</h4>
+      <div class="when">Q2–Q4 2027</div>
+      <ul>
+        <li>For enterprises: run adaptation on customer-controlled servers</li>
+        <li>Fits the air-gapped proposition</li>
+        <li>No data leaves the customer's network</li>
+      </ul>
+    </div>
+    <div class="phase-card">
+      <h4>Phase 4: Confidential Cloud Training</h4>
+      <div class="when">2028+</div>
+      <ul>
+        <li>Premium offering where local compute is insufficient</li>
+        <li>Strongly isolated confidential-computing environment</li>
+        <li>Clear retention policies, independently verifiable deletion</li>
+        <li>Precise language about what is and is not encrypted during computation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <strong>Sequencing Rule</strong>
+    The personalized-model vision is exciting enough to consume the whole roadmap. It should earn increased investment through measurable improvements over memory and retrieval, not through conceptual appeal alone. Do not let it delay enterprise deployment or HP pilots.
+  </div>
+</section>
+
+<!-- ═══════════ 7. ENTERPRISE SOLUTIONS ═══════════ -->
+<section>
+  <h2>7. Enterprise Solutions and Deployment</h2>
+
+  <p>Enterprise deployment is the fastest path to revenue because ALEX already exists and regulated customers need more than software. This should not become generic consulting.</p>
+
+  <div class="callout success">
+    <strong>Operating Rule</strong>
+    Every paid engagement must either produce recurring software revenue or create a reusable product asset.
+  </div>
+
+  <h3>Productized Deployment Package: "ALEX Secure Deployment"</h3>
+  <ul>
+    <li>Annual site or fleet license</li>
+    <li>Offline installation package</li>
+    <li>Approved model configuration</li>
+    <li>Administrative policy controls</li>
+    <li>Audit and activity records</li>
+    <li>Signed updates</li>
+    <li>Deployment assistance</li>
+    <li>Support and sustainment</li>
+    <li>Optional workflow or skill customization</li>
+  </ul>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Good Services</th><th>Bad Services (Avoid)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Deployment and hardening packages</td><td>Unrelated custom applications</td></tr>
+      <tr><td>Offline model distribution</td><td>Permanent one-off forks</td></tr>
+      <tr><td>Custom policy configurations</td><td>Open-ended staff augmentation</td></tr>
+      <tr><td>Audit-log integration</td><td>Features that cannot be reused</td></tr>
+      <tr><td>Identity and access integration</td><td>Commitments to support arbitrary customer infrastructure</td></tr>
+      <tr><td>Certified skills for specific workflows</td><td></td></tr>
+      <tr><td>Accreditation documentation</td><td></td></tr>
+      <tr><td>Fleet-management capabilities</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Revenue Model Shift</h3>
+  <p>Move from conventional per-seat SaaS toward:</p>
+  <ul>
+    <li><strong>Site licensing</strong> — annual fleet or site license</li>
+    <li><strong>Support and sustainment contracts</strong> — recurring services revenue</li>
+    <li><strong>Certified skill packs</strong> — premium, vetted, domain-specific skills</li>
+    <li><strong>Accreditation and compliance packages</strong> — ATO, FedRAMP, IL5/IL6, Common Criteria, FIPS documentation and tooling</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 8. UNIFIED PRODUCT ARCHITECTURE ═══════════ -->
+<section>
+  <h2>8. Unified Product Architecture</h2>
+
+  <p>The pieces mesh cleanly if ALEX is designed as a platform with four layers sharing a common core. HP deployments, community users, and defense installations must not become three products with three codebases.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>Purpose</th><th>Distribution</th><th>Monetization</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Local Agent Runtime</strong></td>
+        <td>Agent, tools, memory, model execution</td>
+        <td>Open or source-available</td>
+        <td>Adoption</td>
+      </tr>
+      <tr>
+        <td><strong>Enterprise Governance</strong></td>
+        <td>Policy, identity, audit, fleet, updates</td>
+        <td>Proprietary</td>
+        <td>Annual enterprise license</td>
+      </tr>
+      <tr>
+        <td><strong>OEM Integration</strong></td>
+        <td>Hardware optimization, secure image, device trust</td>
+        <td>Partner agreements</td>
+        <td>Licensing, co-selling, support</td>
+      </tr>
+      <tr>
+        <td><strong>Private Evolution</strong></td>
+        <td>Memory, adapters, evaluation, training</td>
+        <td>Local, on-prem, optional confidential cloud</td>
+        <td>Premium subscription or enterprise add-on</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════ 9. RISK ANALYSIS ═══════════ -->
+<section>
+  <h2>9. Risk Analysis</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Risk</th><th>Severity</th><th>Likelihood</th><th>Mitigation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>HP builds competing functionality</strong></td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Move faster; build external developer ecosystem; remain model and hardware agnostic; maintain multi-OEM relationships; own enterprise deployment knowledge</td>
+      </tr>
+      <tr>
+        <td><strong>NPI becomes a bottleneck or claims rights</strong></td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Clear IP and scope terms in writing; establish direct HP contracting path; no permanent exclusivity for NPI</td>
+      </tr>
+      <tr>
+        <td><strong>VP sponsor leaves HP or loses influence</strong></td>
+        <td>High</td>
+        <td>Low–Medium</td>
+        <td>Build relationships with additional HP stakeholders; create evidence that outlasts any single sponsor; recruit a second budget owner during the pilot</td>
+      </tr>
+      <tr>
+        <td><strong>Open-source release cannibalizes revenue</strong></td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Stage the release; keep governance, audit, fleet, and compliance proprietary; validate paid boundary before opening the core</td>
+      </tr>
+      <tr>
+        <td><strong>Enterprise sales cycle is too long</strong></td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Sell a defined pilot with credit toward deployment; productize deployment packages; partner with systems integrators</td>
+      </tr>
+      <tr>
+        <td><strong>Personalization vision consumes the roadmap</strong></td>
+        <td>Medium</td>
+        <td>Medium</td>
+        <td>Keep it as a small R&amp;D track; earn investment through measurable results; do not delay enterprise or HP work</td>
+      </tr>
+      <tr>
+        <td><strong>Commodity AI agents erode differentiation</strong></td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Focus on trust, compliance, accreditation, and governance as the moat; build accumulated context and certified workflows that are hard to replicate</td>
+      </tr>
+      <tr>
+        <td><strong>Apple enters the governed-agent space</strong></td>
+        <td>Medium</td>
+        <td>Medium</td>
+        <td>Focus on heterogeneous, non-Apple enterprise environments; emphasize cross-platform and air-gapped capabilities Apple is unlikely to prioritize</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════ 10. ORGANIZATIONAL FOCUS ═══════════ -->
+<section>
+  <h2>10. Organizational Focus</h2>
+
+  <p>To minimize fragmentation, each initiative has a distinct role:</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Initiative</th><th>Role</th><th>Allocation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>HP relationship</td><td>Distribution, validation, hardware integration</td><td><strong>35%</strong></td></tr>
+      <tr><td>Enterprise deployments</td><td>Immediate revenue and requirements</td><td><strong>25%</strong></td></tr>
+      <tr><td>Governance, audit, fleet capabilities</td><td>Commercial moat</td><td><strong>25%</strong></td></tr>
+      <tr><td>Public SDK and extension ecosystem</td><td>Developer adoption</td><td><strong>10%</strong></td></tr>
+      <tr><td>Local adapter training R&amp;D</td><td>Long-term differentiation</td><td><strong>5%</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout danger">
+    <strong>Do Not Prioritize Yet</strong>
+    Consumer-scale cloud personalization service. This is a 2028+ opportunity and should not distract from the immediate enterprise and OEM work.
+  </div>
+</section>
+
+<!-- ═══════════ 11. EXECUTION ROADMAP ═══════════ -->
+<section>
+  <h2>11. Execution Roadmap</h2>
+
+  <h3>Next 30 Days (by August 19, 2026)</h3>
+
+  <h4>HP</h4>
+  <ul>
+    <li>Name one executive sponsor and one operational owner on HP side</li>
+    <li>Define the internal pilot population (20 users)</li>
+    <li>Define the salesperson demo population (2,000 users)</li>
+    <li>Agree on a written pilot scorecard with success criteria</li>
+    <li>Identify the HP hardware configurations to support</li>
+    <li>Establish a date for the commercial review</li>
+    <li>Confirm IP, confidentiality, branding, and nonexclusivity in writing</li>
+    <li>Identify the eventual budget owner for the 2,000-user deployment</li>
+  </ul>
+
+  <h4>Product</h4>
+  <ul>
+    <li>Produce a stable enterprise installer</li>
+    <li>Add high-quality activity logging</li>
+    <li>Add centrally configurable tool and network policies</li>
+    <li>Build a resettable sales-demo package</li>
+    <li>Establish crash and failure diagnostics that operate without exposing user content</li>
+    <li>Instrument product usage with privacy-respecting local metrics and optional aggregated reporting</li>
+  </ul>
+
+  <h4>Commercial</h4>
+  <ul>
+    <li>Create three offers: ALEX Enterprise Pilot, ALEX Secure Deployment, ALEX OEM Evaluation Kit</li>
+    <li>Share expected commercial range with HP before the pilot begins</li>
+    <li>Do not wait for final enterprise pricing — sell a defined pilot with a credit toward annual deployment</li>
+  </ul>
+
+  <h3>Days 31–90 (August – October 2026)</h3>
+  <ul>
+    <li>Run the two HP pilots</li>
+    <li>Conduct weekly structured feedback sessions</li>
+    <li>Measure repeat usage, successful task completion, failures, and demo-generated opportunities</li>
+    <li>Close one regulated-industry design partner outside HP</li>
+    <li>Turn the first external engagement into a reusable deployment package</li>
+    <li>Release the public skills SDK and local API documentation</li>
+    <li>Announce no broader open-source commitment yet</li>
+    <li>Prototype on-device adapter training as an R&amp;D track, not a launch dependency</li>
+  </ul>
+
+  <h3>Months 4–6 (October – December 2026)</h3>
+  <ul>
+    <li>Based on pilot evidence, pursue one of three HP outcomes:
+      <ul>
+        <li><strong>Best:</strong> HP commercially deploys ALEX internally and introduces it to selected enterprise customers</li>
+        <li><strong>Good:</strong> HP bundles or certifies ALEX on specific secure enterprise or workstation configurations</li>
+        <li><strong>Acceptable:</strong> HP remains a paid R&amp;D and design partner while echowin uses the resulting evidence to sell elsewhere</li>
+      </ul>
+    </li>
+    <li>Convert the outside design partner into annual recurring revenue</li>
+    <li>Launch enterprise policy and audit capabilities</li>
+    <li>Decide the open-core boundary based on actual usage and willingness to pay</li>
+    <li>Begin one systems-integrator partnership</li>
+    <li>Package the first regulated-industry workflow</li>
+  </ul>
+
+  <h3>Months 7–12 (January – June 2027)</h3>
+  <ul>
+    <li>Expand to second OEM partner (Lenovo or Dell)</li>
+    <li>Pursue first regulatory accreditation (FedRAMP readiness or Common Criteria)</li>
+    <li>Launch enterprise fleet management and central policy control plane</li>
+    <li>Release source-available developer edition (Stage 2 of open-source strategy)</li>
+    <li>Ship local adapter training (Phase 2 of personalization roadmap)</li>
+    <li>Target $1M+ in annual recurring enterprise revenue</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 12. KPIs AND DECISION GATES ═══════════ -->
+<section>
+  <h2>12. KPIs and Decision Gates</h2>
+
+  <h3>Pilot Success Metrics (20-User Phase)</h3>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="value">&ge;80%</div>
+      <div class="label">Weekly Active Usage</div>
+    </div>
+    <div class="kpi">
+      <div class="value">&ge;70%</div>
+      <div class="label">Task Completion Rate</div>
+    </div>
+    <div class="kpi">
+      <div class="value">0</div>
+      <div class="label">Critical Security Issues</div>
+    </div>
+    <div class="kpi">
+      <div class="value">&ge;4/5</div>
+      <div class="label">User Satisfaction Score</div>
+    </div>
+  </div>
+
+  <h3>Go / No-Go Decision Gates</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Gate</th><th>When</th><th>Criteria</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Gate 1: Pilot Readiness</strong></td>
+        <td>Day 0</td>
+        <td>Enterprise installer stable; logging and policy controls functional; demo package ready; pilot scorecard signed by both parties</td>
+      </tr>
+      <tr>
+        <td><strong>Gate 2: Internal Validation Complete</strong></td>
+        <td>Day 60–90</td>
+        <td>Pilot success metrics met; written feedback from HP participants; identified second HP budget owner; commercial proposal shared</td>
+      </tr>
+      <tr>
+        <td><strong>Gate 3: Field Deployment Go</strong></td>
+        <td>After Gate 2</td>
+        <td>Separate commercial agreement signed; deployment and support plan approved; HP operational owner assigned</td>
+      </tr>
+      <tr>
+        <td><strong>Gate 4: Open-Core Decision</strong></td>
+        <td>Month 6–9</td>
+        <td>Paid boundary validated by enterprise revenue; HP commercial path clear; community interest demonstrated; contribution and security policies ready</td>
+      </tr>
+      <tr>
+        <td><strong>Gate 5: Second OEM Expansion</strong></td>
+        <td>Month 9–12</td>
+        <td>HP deployment successful; reusable OEM toolkit built; at least one additional OEM engaged in discussions</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  echowin Confidential · ALEX Strategic Roadmap · July 2026 · For Executive Team Only
+</footer>
+
+</div><!-- .page -->
+
+</body>
+</html>
