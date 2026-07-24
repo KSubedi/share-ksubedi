@@ -15,80 +15,89 @@
   .hero {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
     color: #fff;
-    padding: 64px 24px 56px;
+    padding: 56px 24px 48px;
     text-align: center;
   }
-  .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .hero .tagline { font-size: 1.25rem; font-weight: 500; opacity: 0.9; }
-  .hero .meta { margin-top: 16px; font-size: 0.95rem; opacity: 0.75; }
-  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .hero .tagline { font-size: 1.2rem; font-weight: 500; opacity: 0.9; }
+  .hero .meta { margin-top: 14px; font-size: 0.9rem; opacity: 0.75; }
+  .container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
 
-  .section { margin: 48px 0; }
+  .section { margin: 40px 0; }
   .section h2 {
-    font-size: 1.5rem; font-weight: 700; color: #4f46e5;
-    border-bottom: 3px solid #e0e7ff; padding-bottom: 8px; margin-bottom: 24px;
+    font-size: 1.4rem; font-weight: 700; color: #4f46e5;
+    border-bottom: 3px solid #e0e7ff; padding-bottom: 8px; margin-bottom: 20px;
   }
 
-  /* Intro blocks */
   .intro-block {
-    background: #fff; border-radius: 16px; padding: 32px;
+    background: #fff; border-radius: 16px; padding: 28px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-    margin-bottom: 24px;
   }
-  .intro-block p { margin-bottom: 12px; font-size: 1.05rem; color: #374151; }
+  .intro-block p { margin-bottom: 10px; font-size: 1rem; color: #374151; }
   .intro-block p:last-child { margin-bottom: 0; }
 
   .objectives {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px; margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
   }
   .obj-item {
-    background: #fff; border-radius: 12px; padding: 16px 20px;
-    display: flex; align-items: flex-start; gap: 12px;
+    background: #fff; border-radius: 12px; padding: 14px 18px;
+    display: flex; align-items: flex-start; gap: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    font-size: 0.95rem; color: #374151;
+    font-size: 0.92rem; color: #374151;
   }
-  .obj-item .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+  .obj-item .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
-  /* Checklist */
   .checklist { list-style: none; }
   .checklist li {
-    background: #fff; border-radius: 12px; padding: 14px 20px;
-    margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+    background: #fff; border-radius: 12px; padding: 12px 18px;
+    margin-bottom: 6px; display: flex; align-items: center; gap: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    font-size: 0.95rem; color: #374151;
+    font-size: 0.92rem; color: #374151;
   }
   .checklist li .box {
-    width: 22px; height: 22px; border: 2px solid #c7d2fe; border-radius: 6px;
+    width: 20px; height: 20px; border: 2px solid #c7d2fe; border-radius: 6px;
     flex-shrink: 0;
   }
 
   /* Course outline cards */
-  .cards { display: flex; flex-direction: column; gap: 20px; }
+  .cards { display: flex; flex-direction: column; gap: 16px; }
   .card {
     background: #fff; border-radius: 16px; overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
     display: flex; flex-direction: row;
-    transition: box-shadow 0.2s;
   }
-  .card:hover { box-shadow: 0 2px 8px rgba(79,70,229,0.12), 0 8px 24px rgba(0,0,0,0.06); }
   .card-left {
-    width: 140px; flex-shrink: 0;
+    width: 130px; flex-shrink: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 24px 16px; text-align: center;
+    padding: 24px 12px; text-align: center;
   }
-  .card-left .card-icon { font-size: 2.4rem; margin-bottom: 8px; }
+  .card-left .card-icon { font-size: 2.2rem; margin-bottom: 8px; }
   .card-left .card-time {
-    font-size: 0.85rem; font-weight: 700; color: #fff;
-    background: #4f46e5; border-radius: 20px; padding: 4px 14px;
+    font-size: 0.8rem; font-weight: 700; color: #fff;
+    border-radius: 20px; padding: 3px 12px;
     white-space: nowrap;
   }
-  .card-right { padding: 24px 28px 24px 8px; flex: 1; }
-  .card-right h3 { font-size: 1.15rem; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
-  .card-right p { font-size: 0.95rem; color: #4b5563; line-height: 1.65; }
-  .card-right p em { color: #7c3aed; font-style: italic; font-size: 0.88rem; }
+  .card-right { padding: 20px 24px 20px 12px; flex: 1; }
+  .card-right h3 { font-size: 1.1rem; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
+  .card-right ul { list-style: none; padding: 0; }
+  .card-right ul li {
+    font-size: 0.92rem; color: #4b5563; line-height: 1.55;
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .card-right ul li::before {
+    content: "›"; position: absolute; left: 0; top: 4px;
+    font-weight: 700; color: #a5b4fc; font-size: 1rem;
+  }
+  .card-right ul li strong { color: #1e1b4b; }
+  .card-right .note {
+    margin-top: 8px; padding: 6px 12px;
+    background: #f5f3ff; border-radius: 8px;
+    font-size: 0.82rem; color: #7c3aed; font-style: italic;
+  }
+  .card-right a { color: #4f46e5; font-weight: 600; text-decoration: none; }
+  .card-right a:hover { text-decoration: underline; }
 
-  /* Color variants for cards */
   .card.c1 .card-left { background: #eef2ff; } .card.c1 .card-time { background: #4f46e5; }
   .card.c2 .card-left { background: #f3e8ff; } .card.c2 .card-time { background: #7c3aed; }
   .card.c3 .card-left { background: #fce7f3; } .card.c3 .card-time { background: #db2777; }
@@ -100,44 +109,44 @@
 
   /* Build section */
   .build-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px; margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; margin-bottom: 16px;
   }
   .build-item {
-    background: #fff; border-radius: 12px; padding: 20px 16px; text-align: center;
+    background: #fff; border-radius: 12px; padding: 18px 14px; text-align: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
   .build-item .step-num {
-    width: 36px; height: 36px; border-radius: 50%;
+    width: 32px; height: 32px; border-radius: 50%;
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    color: #fff; font-weight: 800; font-size: 1rem;
+    color: #fff; font-weight: 800; font-size: 0.9rem;
     display: inline-flex; align-items: center; justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
-  .build-item h4 { font-size: 0.95rem; font-weight: 700; color: #1e1b4b; margin-bottom: 4px; }
-  .build-item p { font-size: 0.82rem; color: #6b7280; line-height: 1.5; }
+  .build-item h4 { font-size: 0.9rem; font-weight: 700; color: #1e1b4b; margin-bottom: 3px; }
+  .build-item p { font-size: 0.8rem; color: #6b7280; line-height: 1.45; }
 
   /* Resources */
   .resource-list { list-style: none; }
   .resource-list li {
-    background: #fff; border-radius: 12px; padding: 14px 20px;
-    margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+    background: #fff; border-radius: 12px; padding: 12px 18px;
+    margin-bottom: 6px; display: flex; align-items: flex-start; gap: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    font-size: 0.95rem; color: #374151;
+    font-size: 0.92rem; color: #374151;
   }
-  .resource-list li .r-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .resource-list li .r-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
 
   .footer {
-    text-align: center; padding: 40px 24px; color: #9ca3af; font-size: 0.85rem;
+    text-align: center; padding: 36px 24px; color: #9ca3af; font-size: 0.82rem;
   }
   a { color: #4f46e5; text-decoration: none; font-weight: 600; }
   a:hover { text-decoration: underline; }
 
   @media (max-width: 640px) {
-    .hero h1 { font-size: 1.8rem; }
+    .hero h1 { font-size: 1.7rem; }
     .card { flex-direction: column; }
-    .card-left { width: 100%; flex-direction: row; gap: 12px; padding: 16px 20px; }
-    .card-right { padding: 16px 20px 20px; }
+    .card-left { width: 100%; flex-direction: row; gap: 10px; padding: 14px 18px; justify-content: flex-start; }
+    .card-right { padding: 14px 18px 18px; }
     .build-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -208,8 +217,14 @@
         </div>
         <div class="card-right">
           <h3>Why Voice Agents</h3>
-          <p>The inbound call problem every business faces: missed calls, after-hours gaps, repetitive FAQs burning staff hours. Why voice agents are the answer — and why <em>now</em> (latency is finally low enough, LLMs are finally good enough). The four-layer architecture every platform shares: Instructions → Knowledge → Tools → Channels. How echowin embodies this with plain-English training, auto-research from your website, and one-click deployment across phone, chat, WhatsApp, and SMS. Live demo: call a pre-built echowin agent so everyone hears the end result before building.</p>
-          <p><em>Concepts universal; demo on echowin.</em></p>
+          <ul>
+            <li>The inbound call problem every business faces: missed calls, after-hours gaps, repetitive FAQs burning staff hours</li>
+            <li>Why voice agents are the answer — and why <em>now</em> (latency is finally low enough, LLMs are finally good enough)</li>
+            <li>The four-layer architecture every platform shares: <strong>Instructions → Knowledge → Tools → Channels</strong></li>
+            <li>How echowin embodies this with plain-English training, auto-research from your website, and one-click deployment across phone, chat, WhatsApp, and SMS</li>
+            <li><strong>Live demo:</strong> call a pre-built echowin agent so everyone hears the end result before building</li>
+          </ul>
+          <div class="note">Concepts universal; demo on echowin.</div>
         </div>
       </div>
 
@@ -220,8 +235,13 @@
         </div>
         <div class="card-right">
           <h3>Where Voice Agents Win</h3>
-          <p>The framework that works on any platform: "what happens to the calls you miss today?" Real use cases: 24/7 reception, appointment scheduling, lead qualification, after-hours coverage, FAQ deflection. Industry spotlights: auto repair, medical, roofing, security, e-commerce. ROI benchmarks: $0.40–2.00 per AI call vs. $6–12 human; 40–60% deflection rates; 331–391% 3-year ROI.</p>
-          <p><em>Concepts universal; examples from multiple platforms.</em></p>
+          <ul>
+            <li>The framework that works on any platform: "what happens to the calls you miss today?"</li>
+            <li>Real use cases: 24/7 reception, appointment scheduling, lead qualification, after-hours coverage, FAQ deflection</li>
+            <li>Industry spotlights: auto repair, medical, roofing, security, e-commerce</li>
+            <li><strong>ROI benchmarks:</strong> $0.40–2.00 per AI call vs. $6–12 human · 40–60% deflection rates · 331–391% 3-year ROI</li>
+          </ul>
+          <div class="note">Concepts universal; examples from multiple platforms.</div>
         </div>
       </div>
 
@@ -232,8 +252,14 @@
         </div>
         <div class="card-right">
           <h3>Build It: Hands-On</h3>
-          <p>Everyone builds a working agent. <strong>Step 1:</strong> Write instructions using the Greeting → Disambiguation → Resolution → Close pattern (works on every platform). <strong>Step 2:</strong> Build a knowledgebase — website sync, document upload, FAQ pairs (every platform has an equivalent). <strong>Step 3:</strong> Connect tools — scheduling, SMS, email, webhooks (universal integration patterns). <strong>Step 4:</strong> Deploy to a phone number. <strong>Step 5:</strong> Place a live test call. Target: first working call within 15 minutes.</p>
-          <p><em>Build on echowin; patterns transfer everywhere.</em></p>
+          <ul>
+            <li><strong>Step 1 — Instructions:</strong> Write instructions using the Greeting → Disambiguation → Resolution → Close pattern (works on every platform)</li>
+            <li><strong>Step 2 — Knowledgebase:</strong> Website sync, document upload, FAQ pairs (every platform has an equivalent)</li>
+            <li><strong>Step 3 — Connect tools:</strong> Scheduling, SMS, email, webhooks (universal integration patterns)</li>
+            <li><strong>Step 4 — Deploy:</strong> Assign a phone number to your agent</li>
+            <li><strong>Step 5 — Test call:</strong> Place a live call. Target: first working call within 15 minutes</li>
+          </ul>
+          <div class="note">Build on echowin; patterns transfer everywhere.</div>
         </div>
       </div>
 
@@ -244,8 +270,13 @@
         </div>
         <div class="card-right">
           <h3>Call Routing, Screening &amp; Handoff</h3>
-          <p>Generative routing vs. keyword routing — the tradeoffs every platform faces. Skills-based routing: "billing → accounting," "appointments → scheduler." Call screening patterns: block spam, prioritize VIPs. Human handoff: when to transfer, how to preserve context, the warm-transfer pattern.</p>
-          <p><em>Concepts universal; demo on echowin.</em></p>
+          <ul>
+            <li><strong>Generative routing vs. keyword routing</strong> — the tradeoffs every platform faces</li>
+            <li><strong>Skills-based routing:</strong> "billing → accounting," "appointments → scheduler"</li>
+            <li><strong>Call screening patterns:</strong> block spam, prioritize VIPs</li>
+            <li><strong>Human handoff:</strong> when to transfer, how to preserve context, the warm-transfer pattern</li>
+          </ul>
+          <div class="note">Concepts universal; demo on echowin.</div>
         </div>
       </div>
 
@@ -256,8 +287,13 @@
         </div>
         <div class="card-right">
           <h3>Analytics</h3>
-          <p>The metrics every voice platform should give you: containment rate, CSAT, escalation rate, average handle time, hallucination rate. Live monitoring: active calls, sentiment, transcription. The improvement loop: review recordings → identify failure patterns → update instructions → retest. How echowin's <a href="https://echo.win/products/business-compass">Business Compass</a> turns conversations into trends, anomalies, and revenue signals automatically — plus weekly AI-generated digests so you don't have to review every call.</p>
-          <p><em>Concepts universal; demo on echowin.</em></p>
+          <ul>
+            <li>The metrics every voice platform should give you: containment rate, CSAT, escalation rate, average handle time, hallucination rate</li>
+            <li><strong>Live monitoring:</strong> active calls, sentiment, transcription</li>
+            <li><strong>The improvement loop:</strong> review recordings → identify failure patterns → update instructions → retest</li>
+            <li>How echowin's <a href="https://echo.win/products/business-compass">Business Compass</a> turns conversations into trends, anomalies, and revenue signals automatically — plus weekly AI-generated digests so you don't have to review every call</li>
+          </ul>
+          <div class="note">Concepts universal; demo on echowin.</div>
         </div>
       </div>
 
@@ -268,8 +304,14 @@
         </div>
         <div class="card-right">
           <h3>The Agency Business Model</h3>
-          <p>How to package and sell voice agents regardless of platform. Pricing models: per-minute, per-call, bundled tiers, annual prepaid. Margins: charge 2–5× infrastructure cost; target 60–80% gross margin. White-label economics: sub-accounts, client isolation, custom branding. The recurring-revenue play: monitoring + maintenance retainers.</p>
-          <p><em>Concepts universal; pricing examples from multiple platforms.</em></p>
+          <ul>
+            <li>How to package and sell voice agents regardless of platform</li>
+            <li><strong>Pricing models:</strong> per-minute, per-call, bundled tiers, annual prepaid</li>
+            <li><strong>Margins:</strong> charge 2–5× infrastructure cost; target 60–80% gross margin</li>
+            <li><strong>White-label economics:</strong> sub-accounts, client isolation, custom branding</li>
+            <li><strong>The recurring-revenue play:</strong> monitoring + maintenance retainers</li>
+          </ul>
+          <div class="note">Concepts universal; pricing examples from multiple platforms.</div>
         </div>
       </div>
 
@@ -280,8 +322,14 @@
         </div>
         <div class="card-right">
           <h3>Limitations, Workarounds &amp; Guardrails</h3>
-          <p>What voice agents struggle with today (platform-agnostic). Safety nets: call screening, transfer fallback, SMS follow-up. The two-strike rule for tool failures. Prompt injection via audio and instruction hierarchy as defense. Legal essentials: AI disclosure, call recording consent, HIPAA considerations.</p>
-          <p><em>Concepts universal; demo on echowin.</em></p>
+          <ul>
+            <li>What voice agents struggle with today (platform-agnostic)</li>
+            <li><strong>Safety nets:</strong> call screening, transfer fallback, SMS follow-up</li>
+            <li><strong>The two-strike rule</strong> for tool failures</li>
+            <li><strong>Prompt injection via audio</strong> and instruction hierarchy as defense</li>
+            <li><strong>Legal essentials:</strong> AI disclosure, call recording consent, HIPAA considerations</li>
+          </ul>
+          <div class="note">Concepts universal; demo on echowin.</div>
         </div>
       </div>
 
@@ -292,7 +340,14 @@
         </div>
         <div class="card-right">
           <h3>Q&amp;A + Next Steps</h3>
-          <p>Multi-language support. Workflow builders and custom logic. CRM integration patterns. Zapier/Make + webhooks for 7,000+ integrations. Platform comparison cheat sheet. Community and ongoing learning resources.</p>
+          <ul>
+            <li>Multi-language support</li>
+            <li>Workflow builders and custom logic</li>
+            <li>CRM integration patterns</li>
+            <li>Zapier/Make + webhooks for 7,000+ integrations</li>
+            <li>Platform comparison cheat sheet</li>
+            <li>Community and ongoing learning resources</li>
+          </ul>
         </div>
       </div>
 
@@ -329,17 +384,17 @@
         <p>Test call by the end of the session</p>
       </div>
     </div>
-    <p style="font-size:0.88rem;color:#7c3aed;font-style:italic;text-align:center;">Built on echowin during the workshop; the architecture, instruction patterns, and integration logic apply to any platform.</p>
+    <p style="font-size:0.85rem;color:#7c3aed;font-style:italic;text-align:center;">Built on echowin during the workshop; the architecture, instruction patterns, and integration logic apply to any platform.</p>
   </div>
 
   <!-- Post-Class Resources -->
   <div class="section">
     <h2>Post-Class Resources</h2>
     <ul class="resource-list">
-      <li><span class="r-icon">📋</span> <strong>Platform-agnostic cheat sheet:</strong> instruction design framework, routing patterns, metric targets, compliance checklist, pricing model templates</li>
-      <li><span class="r-icon">🔄</span> <strong>Platform comparison card:</strong> echowin vs. Vapi vs. Retell vs. Synthflow vs. Bland — strengths, pricing, and when to use each</li>
-      <li><span class="r-icon">🚀</span> <strong>echowin Quick Start Guide</strong> at <a href="https://echo.win/docs">echo.win/docs</a></li>
-      <li><span class="r-icon">👥</span> <strong>Community access</strong> for ongoing support and peer learning</li>
+      <li><span class="r-icon">📋</span> <span><strong>Platform-agnostic cheat sheet:</strong> instruction design framework, routing patterns, metric targets, compliance checklist, pricing model templates</span></li>
+      <li><span class="r-icon">🔄</span> <span><strong>Platform comparison card:</strong> echowin vs. Vapi vs. Retell vs. Synthflow vs. Bland — strengths, pricing, and when to use each</span></li>
+      <li><span class="r-icon">🚀</span> <span><strong>echowin Quick Start Guide</strong> at <a href="https://echo.win/docs">echo.win/docs</a></span></li>
+      <li><span class="r-icon">👥</span> <span><strong>Community access</strong> for ongoing support and peer learning</span></li>
     </ul>
   </div>
 
