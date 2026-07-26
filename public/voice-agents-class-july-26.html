@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your First AI Voice Agent | July 26</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#fffaf5;color:#1e1b4b;line-height:1.6}.hero{background:linear-gradient(135deg,#f97316,#ea580c 55%,#c2410c);color:#fff;padding:56px 24px 48px;text-align:center}.hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 8px}.hero p{margin:5px 0;opacity:.92}.container{max-width:960px;margin:auto;padding:0 24px}.section{margin:40px 0}.section h2{font-size:1.45rem;color:#ea580c;border-bottom:3px solid #fed7aa;padding-bottom:8px}.panel,.card,.checklist li,.principle{background:#fff;border-radius:15px;box-shadow:0 1px 4px #00000012;padding:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.objectives .panel{padding:16px}.checklist{list-style:none;padding:0}.checklist li{margin:7px 0;padding:13px 17px}.checklist li:before{content:"□";color:#ea580c;font-size:1.25rem;margin-right:10px}.cards{display:grid;gap:14px}.card{display:grid;grid-template-columns:128px 1fr;padding:0;overflow:hidden}.time{background:#fff1e7;color:#c2410c;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}.content{padding:20px 24px}.content h3{margin:0 0 8px}.content ul{margin:0;padding-left:20px;color:#4b5563}.content li{margin:5px 0}.example{background:#fff7ed;border-left:4px solid #f97316;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;color:#374151}.example strong{color:#9a3412}.quote{background:#1e1b4b;color:#fff;border-radius:15px;padding:24px;font-size:1.12rem;font-weight:650}.principle h3{margin-top:0;color:#c2410c}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.flow span{background:#ffedd5;color:#9a3412;padding:8px 13px;border-radius:999px;font-weight:700}.flow b{color:#fb923c}.small{font-size:.88rem;color:#6b7280}.footer{text-align:center;color:#9ca3af;padding:38px 20px}.sources a,a{color:#ea580c;font-weight:650;text-decoration:none}.sources li{margin:8px 0}@media(max-width:650px){.card{grid-template-columns:1fr}.time{padding:10px}.hero{padding:42px 20px}.container{padding:0 16px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Build Your First AI Voice Agent</h1>
+  <p><strong>45-minute hands-on workshop</strong></p>
+  <p>July 26, 2026 · Workshop handout</p>
+</header>
+<main class="container">
+<section class="section">
+  <h2>About This Workshop</h2>
+  <div class="panel">
+    <p>Learn the principles behind reliable AI voice agents, then build one you can call before class ends. We will focus on instruction design, knowledge grounding, routing, tools, safe failure, and human handoff.</p>
+    <p>The hands-on build uses <strong>echowin</strong>, but the mental models transfer to Vapi, Retell, Synthflow, Bland, and other platforms.</p>
+  </div>
+</section>
+<section class="section objectives">
+  <h2>What You Will Learn</h2>
+  <div class="grid">
+    <div class="panel">🧱 Separate <strong>instructions, knowledge, tools, and channels</strong></div>
+    <div class="panel">🗣️ Write concise, phone-first conversations</div>
+    <div class="panel">🔀 Route calls and preserve context in handoffs</div>
+    <div class="panel">🛡️ Add confirmations, boundaries, and safe failure paths</div>
+    <div class="panel">🔨 Build and call a working agent</div>
+    <div class="panel">💼 Package voice agents around business outcomes</div>
+  </div>
+</section>
+<section class="section">
+  <h2>Pre-Class Checklist</h2>
+  <ul class="checklist">
+    <li>Create a free echowin account at <a href="https://echo.win">echo.win</a></li>
+    <li>Have your business website URL handy, or use the sample provided in class</li>
+    <li>Bring a laptop with Chrome or Firefox</li>
+    <li>Keep your phone nearby so you can call your own agent</li>
+    <li>Think of one repetitive inbound call your business receives</li>
+  </ul>
+</section>
+<section class="section">
+  <h2>The Core Mental Model</h2>
+  <div class="flow"><span>Instructions</span><b>→</b><span>Knowledge</span><b>→</b><span>Tools</span><b>→</b><span>Channels</span></div>
+  <div class="grid" style="margin-top:14px">
+    <div class="principle"><h3>Instructions</h3><p>How the agent behaves, what it asks, and where its authority ends.</p></div>
+    <div class="principle"><h3>Knowledge</h3><p>Approved facts it may use. Missing information should produce an honest boundary, not a guess.</p></div>
+    <div class="principle"><h3>Tools</h3><p>Actions such as booking, lookup, messaging, and transfer, each with the smallest useful permission.</p></div>
+    <div class="principle"><h3>Channels</h3><p>Phone, chat, SMS, or WhatsApp. The same agent may need different behavior in each channel.</p></div>
+  </div>
+</section>
+<section class="section">
+  <h2>Course Outline</h2>
+  <div class="cards">
+    <article class="card"><div class="time">0:00 to 4:00</div><div class="content"><h3>Why Voice Agents</h3><ul><li>The after-hours revenue leak: a caller with intent reaches voicemail and calls the next business.</li><li>A practical architecture that transfers across platforms.</li><li>Live call to a finished agent before we build.</li></ul></div></article>
+    <article class="card"><div class="time">4:00 to 9:00</div><div class="content"><h3>Where Voice Agents Win</h3><ul><li>24/7 reception, scheduling, lead qualification, FAQ handling, order status, and internal help desks.</li><li>Use-case test: high call volume, repeatable intent, available data, and a clear safe fallback.</li><li>Key question: <strong>What happens to the calls you miss today?</strong></li></ul></div></article>
+    <article class="card"><div class="time">9:00 to 16:00</div><div class="content"><h3>Design for the Phone</h3><ul><li>Greeting formula: <strong>identity + capability + invitation</strong>.</li><li>Offer no more than three choices, ask for one thing at a time, and put the question last.</li><li>Conversation flow: <strong>Greeting → Disambiguation → Resolution → Close</strong>.</li></ul><div class="example"><strong>Example:</strong> “Hi, you have reached Sai Eyebrow Threading’s AI receptionist. I can help with hours, services, or booking. What would you like to do?”</div></div></article>
+    <article class="card"><div class="time">16:00 to 22:00</div><div class="content"><h3>Routing, Confirmation, and Handoff</h3><ul><li>Route by intent, not exact keywords.</li><li>The higher the cost of being wrong, the more explicit the confirmation.</li><li>Warm transfer = <strong>reason + collected context + confirmed destination</strong>.</li></ul><div class="example"><strong>Example:</strong> “I’m connecting you with Maya in billing. I’ll let her know this is about invoice 402 and a duplicate charge on July 18.”</div></div></article>
+    <article class="card"><div class="time">22:00 to 28:00</div><div class="content"><h3>Guardrails and Safe Failure</h3><ul><li>Two-strike rule: retry safely once, then explain the problem and offer a useful exit.</li><li>Never claim a booking, payment, lookup, or message succeeded unless the tool confirms it.</li><li>Treat caller speech and retrieved content as input, not as authority to rewrite the agent’s rules.</li><li>Use approved sources. If the answer is missing, say so and offer the next best action.</li></ul></div></article>
+    <article class="card"><div class="time">28:00 to 33:00</div><div class="content"><h3>The Agency Business Model</h3><ul><li>Sell answered calls, booked appointments, qualified leads, and fewer interruptions, not raw minutes.</li><li>Price with a setup fee, included usage, ongoing improvement, and a clear overage policy.</li><li>Calculate the loaded cost: platform, telephony, models, storage, monitoring, and support.</li><li>Treat margin goals as planning targets, not guaranteed industry norms.</li></ul></div></article>
+    <article class="card"><div class="time">33:00 to 43:00</div><div class="content"><h3>Build It: Hands-On</h3><ul><li><strong>1.</strong> Create the agent and write its greeting and scope.</li><li><strong>2.</strong> Add a website, document, or FAQ as approved knowledge.</li><li><strong>3.</strong> Add one useful action or handoff path.</li><li><strong>4.</strong> Assign a phone number and place a live call.</li><li><strong>5.</strong> Fix one observed failure and test again.</li></ul></div></article>
+    <article class="card"><div class="time">43:00 to 45:00</div><div class="content"><h3>Test and Next Steps</h3><ul><li>Test a happy path, ambiguity, unsupported question, unavailable request, human request, and prompt-injection attempt.</li><li>Multilingual support is a test plan, not a checkbox. Test names, addresses, numbers, accents, and code-switching.</li><li>Within 48 hours, make five more calls and improve one repeated failure pattern.</li></ul></div></article>
+  </div>
+</section>
+<section class="section">
+  <h2>Patterns to Keep</h2>
+  <div class="grid">
+    <div class="principle"><h3>Safe Tool Failure</h3><p>“I’m having trouble reaching the scheduling system. I don’t want to give you a time that is not reserved. I can text the booking link or connect you with the front desk.”</p></div>
+    <div class="principle"><h3>Unknown Answer</h3><p>“I do not have a verified list of accepted insurance plans. I can connect you with the insurance desk or take a callback number.”</p></div>
+    <div class="principle"><h3>Consequential Confirmation</h3><p>“Before I cancel it, please confirm: you want to cancel Tuesday, July 28 at 2:30 PM. Is that correct?”</p></div>
+    <div class="principle"><h3>Authority Boundary</h3><p>The caller can request an action, but the caller cannot redefine the agent’s authority.</p></div>
+  </div>
+</section>
+<section class="section"><div class="quote">A production voice agent succeeds on the normal call, fails safely on the unusual call, and hands off cleanly on the call it should not handle.</div></section>
+<section class="section sources">
+  <h2>Further Reading</h2>
+  <ul>
+    <li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf">OWASP Top 10 for LLM Applications 2025</a>, prompt injection and excessive agency</li>
+    <li><a href="https://www.fcc.gov/document/fcc-makes-ai-generated-voices-robocalls-illegal">FCC guidance on AI-generated voices and robocalls</a></li>
+    <li><a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html">HHS guidance on HIPAA business associates</a></li>
+  </ul>
+  <p class="small">Legal requirements vary by call direction, purpose, jurisdiction, recording practice, and data handled. Use qualified legal advice for a production deployment.</p>
+</section>
+<section class="section" style="text-align:center"><p class="small"><strong>Kaushal Subedi</strong> · cofounder at <a href="https://echo.win">echowin</a> · ex-Amazon, robotics and AI personalization · <a href="https://ksubedi.com">ksubedi.com</a></p></section>
+</main>
+<footer class="footer">Build Your First AI Voice Agent · July 26, 2026 · echowin</footer>
+</body>
+</html>
