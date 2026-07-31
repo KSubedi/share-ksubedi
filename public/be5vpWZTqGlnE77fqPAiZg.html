@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TurnPanel public positioning, launch strategy, value proposition, capabilities, and target customer profiles." />
+  <title>TurnPanel | Public Positioning and Launch Outline</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: #0d1a2b;
+      --surface-2: #12233a;
+      --text: #eef5ff;
+      --muted: #9fb1c8;
+      --accent: #6ee7d8;
+      --accent-2: #8aa7ff;
+      --line: rgba(255,255,255,.1);
+      --warn: #ffd38a;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(110,231,216,.12), transparent 28rem),
+        radial-gradient(circle at 90% 15%, rgba(138,167,255,.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); }
+    .wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+    header { padding: 84px 0 54px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .76rem; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.7rem); line-height: .98; letter-spacing: -.055em; margin: 16px 0 22px; max-width: 900px; }
+    .lead { font-size: clamp(1.08rem, 2vw, 1.35rem); color: var(--muted); max-width: 770px; margin: 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .tag { padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.035); color: #d7e5f7; font-size: .9rem; }
+    main { padding: 42px 0 90px; }
+    section { padding: 30px 0; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.035em; margin: 0 0 16px; }
+    h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    p { margin: 8px 0 0; }
+    .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { background: linear-gradient(145deg, rgba(18,35,58,.96), rgba(13,26,43,.96)); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .card strong.num { display: block; color: var(--accent); font-size: 2rem; line-height: 1; margin-bottom: 10px; }
+    .callout { margin-top: 20px; padding: 22px; border-radius: 18px; border: 1px solid rgba(110,231,216,.25); background: rgba(110,231,216,.07); }
+    .warning { border-color: rgba(255,211,138,.25); background: rgba(255,211,138,.07); color: #ffe7bd; }
+    ul { margin: 12px 0 0; padding-left: 20px; }
+    li { margin: 7px 0; }
+    .table-wrap { margin-top: 20px; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; }
+    table { border-collapse: collapse; width: 100%; min-width: 760px; background: rgba(13,26,43,.85); }
+    th, td { padding: 15px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    th { color: var(--accent); background: rgba(18,35,58,.98); font-size: .88rem; text-transform: uppercase; letter-spacing: .045em; }
+    tr:nth-child(even) td { background: rgba(255,255,255,.018); }
+    tr:hover td { background: rgba(110,231,216,.035); }
+    tr:last-child td { border-bottom: none; }
+    .priority { color: var(--accent); font-weight: 700; }
+    .mode { font-weight: 750; color: #fff; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 780px) {
+      header { padding-top: 58px; }
+      .grid, .grid.three { grid-template-columns: 1fr; }
+      .card { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">TurnPanel marketing strategy</div>
+      <h1>Your private agent environment, everywhere.</h1>
+      <p class="lead">TurnPanel brings local-first intelligence, durable memory, full computer control, hybrid model routing, and remote access into one agent environment.</p>
+      <div class="tag-row">
+        <span class="tag">Local first</span>
+        <span class="tag">Private by design</span>
+        <span class="tag">Hybrid intelligence</span>
+        <span class="tag">Self evolving</span>
+        <span class="tag">Available anywhere</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>1. Release strategy</h2>
+      <p class="muted">Start with a controlled public rollout that rewards participation and creates an organic referral loop.</p>
+      <div class="grid three">
+        <article class="card">
+          <strong class="num">01</strong>
+          <h3>Invite-only launch</h3>
+          <p class="muted">The initial public release is available by invitation only.</p>
+        </article>
+        <article class="card">
+          <strong class="num">02</strong>
+          <h3>Two invitations per member</h3>
+          <p class="muted">Each approved user can invite two additional people.</p>
+        </article>
+        <article class="card">
+          <strong class="num">03</strong>
+          <h3>Signup before download</h3>
+          <p class="muted">Account creation is required before users can download and use TurnPanel.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <strong>Launch objective:</strong> Build a high-signal early community, learn quickly from real workflows, and pace infrastructure and support as access expands.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Brand anchors</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Security and privacy</h3>
+          <p class="muted">Keep sensitive context on the user's computer. Make privacy architecture visible and understandable.</p>
+        </article>
+        <article class="card">
+          <h3>Token cost optimization</h3>
+          <p class="muted">Route work intelligently across local and online models to reduce unnecessary online token usage.</p>
+        </article>
+        <article class="card">
+          <h3>Self-evolving SOTA harness</h3>
+          <p class="muted">Continuously improve the agent environment using what the user teaches it, while keeping the learning loop under user control.</p>
+        </article>
+        <article class="card">
+          <h3>Good user experience</h3>
+          <p class="muted">Turn powerful agent infrastructure into an approachable product that works across desktop, web, mobile, voice, and connected apps.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Public value proposition</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>All-in-one agent environment</h3>
+          <p class="muted">One place for agents, tools, files, memory, voice, models, automation, and remote access.</p>
+        </article>
+        <article class="card">
+          <h3>Local-first by default</h3>
+          <p class="muted">Your context stays on your computer. Local models can handle work without sending it to an external provider.</p>
+        </article>
+        <article class="card">
+          <h3>Durable memory</h3>
+          <p class="muted">TurnPanel remembers preferences, decisions, projects, and workflows so the agent becomes more useful over time.</p>
+        </article>
+        <article class="card">
+          <h3>ZDR with supported online models</h3>
+          <p class="muted">Use online intelligence through providers and configurations that support zero data retention, while retaining local control of context.</p>
+        </article>
+        <article class="card">
+          <h3>Hybrid mode saves money</h3>
+          <p class="muted">Start locally, escalate online only when needed, and reserve expensive models for the work that benefits from them.</p>
+        </article>
+        <article class="card">
+          <h3>Self-evolving agent</h3>
+          <p class="muted">The environment learns from what users teach it and turns repeated workflows into lasting capability.</p>
+        </article>
+        <article class="card">
+          <h3>Remote access from anywhere</h3>
+          <p class="muted">A mobile PWA brings the user's private agent and home-computer context wherever they go.</p>
+        </article>
+        <article class="card">
+          <h3>Fully local voice mode</h3>
+          <p class="muted">Speak with the agent using an end-to-end local voice workflow when privacy or offline operation matters.</p>
+        </article>
+        <article class="card">
+          <h3>Built-in local gateway</h3>
+          <p class="muted">Connect local models and TurnPanel intelligence to compatible external apps through a built-in gateway.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Core capabilities</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Full computer control</h3>
+          <p class="muted">Agents can operate files, commands, applications, and workflows on the user's behalf, with visible controls for consequential actions.</p>
+        </article>
+        <article class="card">
+          <h3>Semantic file and document understanding</h3>
+          <p class="muted">Find, read, compare, and reason across documents and files based on meaning, not only filenames or keywords.</p>
+        </article>
+        <article class="card">
+          <h3>Memory and automated personalization</h3>
+          <p class="muted">Build continuity across sessions and adapt responses, tools, and workflows to the individual user.</p>
+        </article>
+        <article class="card">
+          <h3>Web and image search</h3>
+          <p class="muted">Combine private local context with current public information and visual discovery when the task requires it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. What stays local</h2>
+      <p class="muted">A suggested public comparison framework. Named competitor claims should be verified against current product documentation before publication.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>TurnPanel</th>
+              <th>Claude Cowork and cloud-first agents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary context store</td>
+              <td><span class="priority">Local-first</span> on the user's computer</td>
+              <td>Product and plan dependent, often tied to a vendor-hosted account or workspace</td>
+            </tr>
+            <tr>
+              <td>Model execution</td>
+              <td>Local, hybrid, or online</td>
+              <td>Typically online-first; local options vary by product</td>
+            </tr>
+            <tr>
+              <td>Persistent memory</td>
+              <td>Stored and managed locally</td>
+              <td>Implementation and storage location vary</td>
+            </tr>
+            <tr>
+              <td>Online data retention</td>
+              <td>ZDR-compatible routing with supported providers and configurations</td>
+              <td>Depends on provider, plan, and policy</td>
+            </tr>
+            <tr>
+              <td>Local voice workflow</td>
+              <td>Supported</td>
+              <td>Varies by product</td>
+            </tr>
+            <tr>
+              <td>Local model gateway</td>
+              <td>Built in</td>
+              <td>May require separate tools or configuration</td>
+            </tr>
+            <tr>
+              <td>Remote mobile access</td>
+              <td>Private agent access through a mobile PWA</td>
+              <td>Product-specific mobile or browser experience</td>
+            </tr>
+            <tr>
+              <td>Cost optimization</td>
+              <td>Local-first routing with selective online escalation</td>
+              <td>Usually based on subscription or online model usage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning">
+        <strong>Publication note:</strong> Validate every named comparison at launch time. Product architecture, retention policies, plans, and capabilities change frequently.
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Public customer profiles</h2>
+      <p class="muted">Position TurnPanel around the user's hardware and preferred balance of privacy, speed, model quality, and cost.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User profile</th>
+              <th>Recommended mode</th>
+              <th>Positioning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Okay hardware that can run smaller local models</td>
+              <td><span class="mode">Hybrid</span></td>
+              <td>Keep routine and private work local, then escalate harder tasks online.</td>
+            </tr>
+            <tr>
+              <td>Slow or limited hardware</td>
+              <td><span class="mode">Online</span></td>
+              <td>Use Codex, OpenRouter, or another online provider while TurnPanel keeps the context and orchestration layer local.</td>
+            </tr>
+            <tr>
+              <td>Good hardware</td>
+              <td><span class="mode">Local</span></td>
+              <td>Maximize privacy, predictable cost, and offline capability with strong local models.</td>
+            </tr>
+            <tr>
+              <td>Good hardware with demanding workloads</td>
+              <td><span class="mode">Hybrid</span></td>
+              <td>Use fast local models by default and online frontier models selectively.</td>
+            </tr>
+            <tr>
+              <td>Users prioritizing maximum online model capability</td>
+              <td><span class="mode">Online</span></td>
+              <td>Keep the TurnPanel experience, tools, memory, and local context layer while choosing online inference.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Enterprise direction</h2>
+      <p class="muted">Build the enterprise story around control, privacy, cost governance, deployability, and an excellent employee experience.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Private context architecture</h3>
+          <p class="muted">Keep organizational knowledge and user context local wherever possible, with explicit boundaries for online model use.</p>
+        </article>
+        <article class="card">
+          <h3>Model and token governance</h3>
+          <p class="muted">Give organizations a path to route tasks by sensitivity, complexity, approved provider, and cost.</p>
+        </article>
+        <article class="card">
+          <h3>Secure online escalation</h3>
+          <p class="muted">Support ZDR-compatible online workflows for tasks that need frontier model capability.</p>
+        </article>
+        <article class="card">
+          <h3>Compounding workforce intelligence</h3>
+          <p class="muted">Let each employee's agent learn approved workflows and improve with use without surrendering the organization's context layer.</p>
+        </article>
+      </div>
+      <div class="callout warning">
+        <strong>Enterprise items to define:</strong> deployment model, identity and access controls, audit logs, policy management, data residency, administrative controls, support, procurement, and pricing.
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Messaging hierarchy</h2>
+      <div class="grid three">
+        <article class="card">
+          <strong class="num">1</strong>
+          <h3>Lead with control</h3>
+          <p class="muted">Your agent, your context, your computer.</p>
+        </article>
+        <article class="card">
+          <strong class="num">2</strong>
+          <h3>Prove practical value</h3>
+          <p class="muted">One environment for memory, tools, files, voice, models, and automation.</p>
+        </article>
+        <article class="card">
+          <strong class="num">3</strong>
+          <h3>Close with compounding value</h3>
+          <p class="muted">The agent improves as users teach it, while remaining private and portable.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">TurnPanel public positioning and launch outline | Working draft</div>
+  </footer>
+</body>
+</html>
