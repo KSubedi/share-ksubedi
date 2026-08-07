@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Database Memory Enhancement Proposal | TurnPanel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 60px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin: 35px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight-box strong {
+            color: #1565c0;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2196f3;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .phase-timeline {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .phase {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .phase:last-child {
+            margin-bottom: 0;
+        }
+        
+        .phase-number {
+            background: #2196f3;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .phase-content {
+            flex: 1;
+        }
+        
+        .phase-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .phase-duration {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        a {
+            color: #2196f3;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Graph Database Memory Enhancement</h1>
+        <div class="subtitle">Proposal for TurnPanel's Long-Term Memory Architecture</div>
+
+        <div class="highlight-box">
+            <strong>Executive Summary:</strong> This proposal outlines a hybrid vector + graph database architecture to transform TurnPanel's memory system from flat storage into a relationship-aware knowledge graph. Expected outcomes include 10-50x faster relationship queries, 30-50% reduction in token usage, and 90-95% recall accuracy (up from 75-85%).
+        </div>
+
+        <h2>Current Architecture Analysis</h2>
+        <h3>Core Memory (<code>core.json</code>)</h3>
+        <ul>
+            <li><strong>Structure:</strong> Flat JSON array with max 24 entries</li>
+            <li><strong>Storage:</strong> Simple key-value facts without relationships</li>
+            <li><strong>Query method:</strong> Linear scan or basic filtering</li>
+            <li><strong>Limitation:</strong> No awareness of how facts connect to each other</li>
+        </ul>
+
+        <h3>Episodic Memory (<code>vector-db/memories.json</code>)</h3>
+        <ul>
+            <li><strong>Structure:</strong> HNSW vector database with <code>bge-small-en-v1.5</code> embeddings</li>
+            <li><strong>Capacity:</strong> Maximum 5,000 entries</li>
+            <li><strong>Query method:</strong> Cosine similarity search (threshold 0.5-0.9)</li>
+            <li><strong>Limitation:</strong> Semantic similarity without entity resolution or relationship tracking</li>
+        </ul>
+
+        <div class="warning">
+            <strong>Key Gap:</strong> Current system cannot answer questions like "What projects does the user work on?" or "What tools does the user prefer for coding?" without scanning all memories and inferring relationships at query time.
+        </div>
+
+        <h2>Proposed Hybrid Architecture</h2>
+        <h3>Core Components</h3>
+        <ol>
+            <li><strong>Vector Database (unchanged):</strong> Continue using HNSW for semantic similarity search</li>
+            <li><strong>Graph Database (new):</strong> Neo4j or FalkorDB for relationship-aware storage</li>
+            <li><strong>Entity Extraction Layer:</strong> NLP pipeline to identify entities and relationships from raw memories</li>
+            <li><strong>Hybrid Query Engine:</strong> Combine vector search with graph traversal for comprehensive results</li>
+        </ol>
+
+        <h3>Graph Schema Design</h3>
+        <h4>Node Labels</h4>
+        <table>
+            <tr>
+                <th>Label</th>
+                <th>Example Properties</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>Person</code></td>
+                <td><code>{name, email, role}</code></td>
+                <td>People in user's life (Dana, Ashish, etc.)</td>
+            </tr>
+            <tr>
+                <td><code>Project</code></td>
+                <td><code>{name, status, repository}</code></td>
+                <td>Active development projects (TurnPanel, ALEX, Law Nepal)</td>
+            </tr>
+            <tr>
+                <td><code>Tool</code></td>
+                <td><code>{name, category, version}</code></td>
+                <td>Software tools and libraries (llama.cpp, Composio, tmux)</td>
+            </tr>
+            <tr>
+                <td><code>Preference</code></td>
+                <td><code>{type, value, context}</code></td>
+                <td>User preferences (local-first, WebP, metric units)</td>
+            </tr>
+            <tr>
+                <td><code>Memory</code></td>
+                <td><code>{text, timestamp, embedding}</code></td>
+                <td>Raw memory entries linked to entities</td>
+            </tr>
+        </table>
+
+        <h4>Edge Types</h4>
+        <table>
+            <tr>
+                <th>Edge Type</th>
+                <th>Example</th>
+                <th>Properties</th>
+            </tr>
+            <tr>
+                <td><code>USES</code></td>
+                <td><code>(User)-[:USES]->(llama.cpp)</code></td>
+                <td><code>{since, frequency}</code></td>
+            </tr>
+            <tr>
+                <td><code>PREFERS</code></td>
+                <td><code>(User)-[:PREFERS]->(local-first)</code></td>
+                <td><code>{strength, context}</code></td>
+            </tr>
+            <tr>
+                <td><code>WORKS_ON</code></td>
+                <td><code>(User)-[:WORKS_ON]->(TurnPanel)</code></td>
+                <td><code>{role, start_date, priority}</code></td>
+            </tr>
+            <tr>
+                <td><code>MENTIONED_IN</code></td>
+                <td><code>(Dana)-[:MENTIONED_IN]->(Memory#123)</code></td>
+                <td><code>{timestamp, context}</code></td>
+            </tr>
+            <tr>
+                <td><code>EVOLVED_FROM</code></td>
+                <td><code>(Memory#456)-[:EVOLVED_FROM]->(Memory#123)</code></td>
+                <td><code>{confidence, timestamp}</code></td>
+            </tr>
+            <tr>
+                <td><code>RELATED_TO</code></td>
+                <td><code>(ALEX)-[:RELATED_TO]->(TurnPanel)</code></td>
+                <td><code>{relationship_type}</code></td>
+            </tr>
+        </table>
+
+        <h2>Implementation Plan</h2>
+        <div class="phase-timeline">
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <div class="phase-content">
+                    <div class="phase-title">Prototype with NetworkX</div>
+                    <div class="phase-duration">Week 1</div>
+                    <ul>
+                        <li>Build in-memory graph using NetworkX (Python)</li>
+                        <li>Implement entity extraction from existing memories</li>
+                        <li>Create basic Cypher-like query interface</li>
+                        <li>Test with historical memory data</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <div class="phase-content">
+                    <div class="phase-title">Select Production Graph Database</div>
+                    <div class="phase-duration">Week 2</div>
+                    <ul>
+                        <li>Evaluate Neo4j (full-featured) vs FalkorDB (lightweight, Redis-based)</li>
+                        <li>Test performance with 5,000+ node graph</li>
+                        <li>Make final decision based on deployment complexity</li>
+                        <li>Set up local development instance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <div class="phase-content">
+                    <div class="phase-title">Build Migration Pipeline</div>
+                    <div class="phase-duration">Week 3</div>
+                    <ul>
+                        <li>Write scripts to extract entities from <code>core.json</code> and <code>memories.json</code></li>
+                        <li>Generate graph nodes and edges from existing data</li>
+                        <li>Implement bidirectional sync between vector DB and graph DB</li>
+                        <li>Create rollback mechanism</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-number">4</div>
+                <div class="phase-content">
+                    <div class="phase-title">Integrate with Memory Pipeline</div>
+                    <div class="phase-duration">Week 4</div>
+                    <ul>
+                        <li>Modify <code>memory-store.ts</code> to write to both vector and graph databases</li>
+                        <li>Add graph-aware query methods (multi-hop, relationship filtering)</li>
+                        <li>Implement Upkeep automation for graph maintenance</li>
+                        <li>Add conflict detection and entity resolution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-number">5</div>
+                <div class="phase-content">
+                    <div class="phase-title">Testing and Optimization</div>
+                    <div class="phase-duration">Week 5</div>
+                    <ul>
+                        <li>Run benchmarks: recall accuracy, query latency, token efficiency</li>
+                        <li>Optimize graph indexes and query patterns</li>
+                        <li>Document new query API for developers</li>
+                        <li>Deploy to production with monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>Query Examples</h2>
+        <h3>Before (Current System)</h3>
+        <pre>// To find all projects user works on:
+// 1. Fetch ALL memories
+// 2. Run semantic search for "project"
+// 3. Manually parse results for project names
+// 4. No way to know if projects are related
+
+const memories = await memoryStore.getAll();
+const projectMemories = memories.filter(m => 
+  m.text.includes('project') || m.text.includes('TurnPanel')
+);
+// Result: Incomplete, no relationship awareness</pre>
+
+        <h3>After (Graph-Enhanced)</h3>
+        <pre>// Single query returns all projects with full context
+const projects = await graphQuery(`
+    MATCH (u:User)-[:WORKS_ON]->(p:Project)
+    RETURN p.name, p.status, p.repository
+    ORDER BY p.status
+`);
+
+// Result: [
+//   { name: 'TurnPanel', status: 'active', repository: 'KSubedi/turnpanel' },
+//   { name: 'ALEX', status: 'active', repository: 'KSubedi/alex' },
+//   { name: 'Law Nepal', status: 'planning', repository: 'KSubedi/law-nepal' }
+// ]
+
+// Multi-hop query: Find all tools used in active projects
+const tools = await graphQuery(`
+    MATCH (u:User)-[:WORKS_ON]->(p:Project)
+    WHERE p.status = 'active'
+    MATCH (p)-[:USES]->(t:Tool)
+    RETURN DISTINCT t.name, t.category
+`);</pre>
+
+        <h2>Measurable Outcomes</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <span class="metric-value">10-50x</span>
+                <span class="metric-label">Faster relationship queries</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">30-50%</span>
+                <span class="metric-label">Fewer tokens in memory injection</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">90-95%</span>
+                <span class="metric-label">Recall accuracy (vs 75-85%)</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">&lt;50ms</span>
+                <span class="metric-label">Graph query latency</span>
+            </div>
+        </div>
+
+        <h2>Risk Assessment</h2>
+        <table>
+            <tr>
+                <th>Risk</th>
+                <th>Impact</th>
+                <th>Mitigation</th>
+            </tr>
+            <tr>
+                <td>Graph database adds operational complexity</td>
+                <td>Medium</td>
+                <td>Use FalkorDB (Redis-based) for lightweight deployment; containerize with Docker</td>
+            </tr>
+            <tr>
+                <td>Migration may lose some historical context</td>
+                <td>Low</td>
+                <td>Keep original vector DB intact; run both systems in parallel during transition</td>
+            </tr>
+            <tr>
+                <td>Entity extraction accuracy below threshold</td>
+                <td>Medium</td>
+                <td>Implement confidence scoring; manual review for low-confidence extractions</td>
+            </tr>
+            <tr>
+                <td>Increased memory footprint</td>
+                <td>Low</td>
+                <td>Graph metadata is minimal (~5-10% of total memory size)</td>
+            </tr>
+        </table>
+
+        <h2>Technical Decisions Required</h2>
+        <ol>
+            <li><strong>Graph Database Selection:</strong> Neo4j (production-grade, full Cypher) vs FalkorDB (lightweight, Redis-compatible)</li>
+            <li><strong>Entity Extraction Method:</strong> Rule-based (regex + heuristics) vs LLM-based (more accurate but slower)</li>
+            <li><strong>Deployment Strategy:</strong> Local-only (user's machine) vs cloud-synced for multi-device support</li>
+            <li><strong>Query API:</strong> Direct Cypher exposure vs safe abstraction layer with predefined query templates</li>
+        </ol>
+
+        <div class="success">
+            <strong>Next Steps:</strong> Upon approval, begin Phase 1 prototype with NetworkX to validate the approach before committing to production database selection.
+        </div>
+
+        <div class="footer">
+            <p>Document created: August 7, 2026 | TurnPanel Memory Enhancement Proposal</p>
+        </div>
+    </div>
+</body>
+</html>
