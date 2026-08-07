@@ -3,64 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mksalon Report</title>
+<title>MK Salon | Agent Report</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #172033;
+    --muted: #647084;
+    --line: #e8e4df;
+    --paper: #fffdf9;
+    --canvas: #f3f0eb;
+    --accent: #9b5c4d;
+    --accent-dark: #6f3d35;
+    --accent-soft: #f4e6e0;
+    --gold: #c59a55;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--canvas); }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.7;
-    color: #1a1a2e;
-    background: #f8f9fa;
-    padding: 2rem 1rem;
+    margin: 0;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 8% 0%, rgba(197,154,85,.12), transparent 28rem),
+      radial-gradient(circle at 100% 12%, rgba(155,92,77,.10), transparent 30rem),
+      var(--canvas);
+    line-height: 1.65;
+    padding: 42px 18px;
   }
   .container {
-    max-width: 800px;
+    max-width: 980px;
     margin: 0 auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    padding: 3rem;
+    background: var(--paper);
+    border: 1px solid rgba(111,61,53,.10);
+    border-radius: 24px;
+    box-shadow: 0 24px 70px rgba(57,39,30,.12);
+    overflow: hidden;
   }
-  h1 { font-size: 2rem; color: #16213e; margin-bottom: 0.5rem; border-bottom: 3px solid #6c63ff; padding-bottom: 0.75rem; }
-  h2 { font-size: 1.4rem; color: #16213e; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #e0e0e0; }
-  h3 { font-size: 1.15rem; color: #0f3460; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-  p { margin-bottom: 1rem; }
-  blockquote { border-left: 4px solid #6c63ff; padding: 1rem 1.5rem; margin: 1rem 0; background: #f0eeff; border-radius: 0 8px 8px 0; font-style: italic; color: #333; }
-  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; }
-  th { background: #16213e; color: #fff; padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
-  td { padding: 0.65rem 1rem; border-bottom: 1px solid #e8e8e8; }
-  tr:nth-child(even) { background: #f8f9fa; }
-  tr:hover { background: #f0eeff; }
-  hr { border: none; border-top: 2px solid #e0e0e0; margin: 2rem 0; }
-  a { color: #6c63ff; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code { background: #f0eeff; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; font-family: 'SF Mono', 'Fira Code', monospace; }
-  @media (max-width: 600px) { .container { padding: 1.5rem; } h1 { font-size: 1.5rem; } table { font-size: 0.85rem; } th, td { padding: 0.5rem 0.6rem; } }
+  .hero {
+    position: relative;
+    padding: 58px clamp(28px, 6vw, 76px) 48px;
+    color: #fffaf5;
+    background: linear-gradient(130deg, #55352f 0%, #824b40 58%, #a86d53 100%);
+  }
+  .hero:after {
+    content: "";
+    position: absolute;
+    width: 260px; height: 260px;
+    right: -80px; top: -100px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 28px rgba(255,255,255,.05), 0 0 0 56px rgba(255,255,255,.035);
+  }
+  .eyebrow {
+    position: relative;
+    z-index: 1;
+    color: #f0c98e;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 0 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -.035em;
+  }
+  .hero p { position: relative; z-index: 1; margin: 0; color: #f8e9dc; }
+  .hero strong { color: #fff; }
+  .content, .container > h2, .container > h3, .container > p, .container > table,
+  .container > blockquote, .container > ul, .container > .bullet { margin-left: clamp(28px, 6vw, 76px); margin-right: clamp(28px, 6vw, 76px); }
+  .container > h2 { margin-top: 48px; }
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2:before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: 0 0 auto; }
+  h3 { color: var(--ink); font-size: 1rem; letter-spacing: .02em; margin-top: 28px; margin-bottom: 10px; }
+  p { margin-top: 0; margin-bottom: 14px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 42px 0 0; }
+  table { width: calc(100% - 0px); border-collapse: separate; border-spacing: 0; margin-top: 14px; margin-bottom: 28px; font-size: .94rem; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  th { background: #f0e5de; color: var(--accent-dark); text-align: left; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: 13px 16px; }
+  td { padding: 12px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #fffaf6; }
+  tr:hover td { background: #f9efe9; }
+  blockquote { margin-top: 16px; margin-bottom: 24px; padding: 20px 24px; border-left: 3px solid var(--gold); border-radius: 0 14px 14px 0; background: var(--accent-soft); color: #4e3933; font-family: Georgia, serif; font-size: 1.05rem; }
+  a { color: var(--accent-dark); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  code { color: var(--accent-dark); background: #f5ece7; padding: 2px 6px; border-radius: 5px; font-size: .88em; }
+  .bullet { display: flex; gap: 12px; margin-top: 9px; margin-bottom: 9px; }
+  .bullet span:first-child { color: var(--gold); font-size: 1.3rem; line-height: 1.3; }
+  .container > h2:last-of-type { margin-bottom: 18px; }
+  @media (max-width: 640px) {
+    body { padding: 12px 8px; }
+    .container { border-radius: 18px; }
+    .hero { padding: 40px 24px 34px; }
+    .content, .container > h2, .container > h3, .container > p, .container > table, .container > blockquote, .container > ul, .container > .bullet { margin-left: 22px; margin-right: 22px; }
+    h2 { font-size: 1.45rem; margin-top: 36px; }
+    table { font-size: .85rem; }
+    th, td { padding: 10px 11px; }
+  }
+  @media print { body { background: #fff; padding: 0; } .container { box-shadow: none; border: 0; } }
 </style>
 </head>
 <body>
 <div class="container">
+<header class="hero">
+<div class="eyebrow">Voice agent profile</div>
 <h1>MK Salon (Priya Agent) — Status Report</h1>
 <p><strong>Generated:</strong> August 7, 2026</p>
+</header>
 <hr>
 <h2>Agent Overview</h2>
 <table>
 <thead><tr><th>Field</th><th>Value</th></tr></thead>
-<tr><td>**Agent Name**</td><td>Priya</td></tr>
-<tr><td>**Agent ID**</td><td>`9396628d-f7c0-4ce1-b9a8-5bb9a16932a3`</td></tr>
-<tr><td>**Knowledgebase**</td><td>Priya Knowledge Base (`80743be8-148f-441c-ae43-6accba5e93d1`)</td></tr>
-<tr><td>**Location**</td><td>8020 Fry Rd Ste 104, Cypress, TX 77433</td></tr>
-<tr><td>**Booking Site**</td><td>[mk-brow-and-lash.square.site](https://mk-brow-and-lash.square.site/)</td></tr>
-<tr><td>**Last Updated**</td><td>April 14, 2026</td></tr>
+<tr><td><strong>Agent Name</strong></td><td>Priya</td></tr>
+<tr><td><strong>Agent ID</strong></td><td><code>9396628d-f7c0-4ce1-b9a8-5bb9a16932a3</code></td></tr>
+<tr><td><strong>Knowledgebase</strong></td><td>Priya Knowledge Base (`80743be8-148f-441c-ae43-6accba5e93d1`)</td></tr>
+<tr><td><strong>Location</strong></td><td>8020 Fry Rd Ste 104, Cypress, TX 77433</td></tr>
+<tr><td><strong>Booking Site</strong></td><td>[mk-brow-and-lash.square.site](https://mk-brow-and-lash.square.site/)</td></tr>
+<tr><td><strong>Last Updated</strong></td><td>April 14, 2026</td></tr>
 </table>
 <hr>
 <h2>Agent Instructions</h2>
 <p><strong>Greeting:</strong></p>
 <blockquote>&quot;Thank you for calling MK Salon. This is Priya, your virtual receptionist. I can answer questions about our services, pricing, hours or even transfer you to someone. How may I assist you today?&quot;</blockquote>
 <p><strong>Behavior:</strong></p>
-<p>- Transfer calls to staff when requested or if the conversation is unclear</p>
-<p>- Offer to text the booking link (https://mk-brow-and-lash.square.site/) — do not speak the link aloud as it is not audible over phone</p>
-<p>- Appointments are not required but recommended</p>
+<div class="bullet"><span>•</span><span>Transfer calls to staff when requested or if the conversation is unclear</span></div>
+<div class="bullet"><span>•</span><span>Offer to text the booking link (https://mk-brow-and-lash.square.site/) — do not speak the link aloud as it is not audible over phone</span></div>
+<div class="bullet"><span>•</span><span>Appointments are not required but recommended</span></div>
 <hr>
 <h2>Business Hours</h2>
 <table>
@@ -137,19 +221,13 @@
 <p>5. <strong>Waxing Prices</strong> — Full waxing pricing (see table above)</p>
 <p>6. <strong>Address</strong> — 8020 Fry Rd Ste 104, Cypress, TX 77433</p>
 <hr>
-<h2>API Access</h2>
-<table>
-<thead><tr><th>Field</th><th>Value</th></tr></thead>
-<tr><td>**API Key**</td><td>`[REDACTED]`</td></tr>
-<tr><td>**Base URL**</td><td>https://echo.win/api/v1</td></tr>
-<tr><td>**Auth Header**</td><td>`X-API-Key: [REDACTED]`</td></tr>
-</table>
-<hr>
+<h2>At a glance</h2>
+<p><strong>Profile:</strong> MK Salon · Cypress, Texas</p>
 <h2>Notes</h2>
-<p>- Agent instructions last updated April 14, 2026 (4 months ago)</p>
-<p>- Knowledgebase reference <code>d87d0c1e</code> is the threading prices reference</p>
-<p>- No webpage sources configured in knowledgebase — all info comes from Q&amp;A references</p>
-<p>- Promotions: Monday facials 50% off, Tuesday waxing 20% off</p>
+<div class="bullet"><span>•</span><span>Agent instructions last updated April 14, 2026 (4 months ago)</span></div>
+<div class="bullet"><span>•</span><span>Knowledgebase reference <code>d87d0c1e</code> is the threading prices reference</span></div>
+<div class="bullet"><span>•</span><span>No webpage sources configured in knowledgebase — all info comes from Q&amp;A references</span></div>
+<div class="bullet"><span>•</span><span>Promotions: Monday facials 50% off, Tuesday waxing 20% off</span></div>
 </div>
 </body>
 </html>
